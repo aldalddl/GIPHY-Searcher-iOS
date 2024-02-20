@@ -14,6 +14,9 @@
 		4712ECC42B8336A4009B6BE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4712ECC22B8336A4009B6BE9 /* LaunchScreen.storyboard */; };
 		4712ECE22B84D155009B6BE9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4712ECE12B84D155009B6BE9 /* SnapKit */; };
 		4712ECE42B84D155009B6BE9 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 4712ECE32B84D155009B6BE9 /* SnapKit-Dynamic */; };
+		4712ECEA2B852264009B6BE9 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4712ECE92B852264009B6BE9 /* BookmarkViewController.swift */; };
+		4712ECEC2B85226D009B6BE9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4712ECEB2B85226D009B6BE9 /* SettingViewController.swift */; };
+		4712ECEE2B85227B009B6BE9 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4712ECED2B85227B009B6BE9 /* MainTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		4712ECC02B8336A4009B6BE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4712ECC32B8336A4009B6BE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4712ECC52B8336A4009B6BE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4712ECE92B852264009B6BE9 /* BookmarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		4712ECEB2B85226D009B6BE9 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		4712ECED2B85227B009B6BE9 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,8 @@
 			children = (
 				4712ECDA2B84C125009B6BE9 /* Common */,
 				4712ECD72B84C0FB009B6BE9 /* Main */,
+				4712ECE72B852245009B6BE9 /* Bookmark */,
+				4712ECE82B85224C009B6BE9 /* Setting */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -112,8 +120,25 @@
 		4712ECDA2B84C125009B6BE9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4712ECED2B85227B009B6BE9 /* MainTabBarController.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		4712ECE72B852245009B6BE9 /* Bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				4712ECE92B852264009B6BE9 /* BookmarkViewController.swift */,
+			);
+			path = Bookmark;
+			sourceTree = "<group>";
+		};
+		4712ECE82B85224C009B6BE9 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				4712ECEB2B85226D009B6BE9 /* SettingViewController.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +218,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4712ECEC2B85226D009B6BE9 /* SettingViewController.swift in Sources */,
+				4712ECEA2B852264009B6BE9 /* BookmarkViewController.swift in Sources */,
+				4712ECEE2B85227B009B6BE9 /* MainTabBarController.swift in Sources */,
 				4712ECBC2B8336A3009B6BE9 /* MainViewController.swift in Sources */,
 				4712ECB82B8336A3009B6BE9 /* AppDelegate.swift in Sources */,
 				4712ECBA2B8336A3009B6BE9 /* SceneDelegate.swift in Sources */,

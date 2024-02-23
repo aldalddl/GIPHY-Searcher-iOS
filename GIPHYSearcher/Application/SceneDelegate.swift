@@ -24,6 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.overrideUserInterfaceStyle = .dark
         
         UITabBar.appearance().tintColor = .white
+        UINavigationBar.appearance().tintColor = .white
         
         window.makeKeyAndVisible()
         

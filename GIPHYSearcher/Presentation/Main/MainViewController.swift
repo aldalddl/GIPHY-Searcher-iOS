@@ -35,12 +35,12 @@ class MainViewController: UIViewController {
     func setUp() {
         self.view.backgroundColor = .backgroundColor
         
+        self.navigationItem.title = "GIPHY Searcher"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Search GIFs"
         self.navigationItem.searchController = searchController
-        
-        self.navigationItem.title = "GIPHY Searcher"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         
         trendingCollectionView.dataSource = self
         trendingCollectionView.delegate = self

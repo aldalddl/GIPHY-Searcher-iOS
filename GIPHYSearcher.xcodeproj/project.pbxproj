@@ -24,9 +24,11 @@
 		476A85DA2B883D660003E6D6 /* TredingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D42B883D660003E6D6 /* TredingDataModel.swift */; };
 		476A85DB2B883D660003E6D6 /* TrendingAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D52B883D660003E6D6 /* TrendingAPIData.swift */; };
 		476A85DC2B883D660003E6D6 /* TrendingAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D62B883D660003E6D6 /* TrendingAPIManager.swift */; };
+		E08FA3042085B2B8C7AE0FA9 /* Pods_GIPHYSearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F7A1B2673660EDE6EDC4CE /* Pods_GIPHYSearcher.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4070B8F356873457E9D66C78 /* Pods-GIPHYSearcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GIPHYSearcher.release.xcconfig"; path = "Target Support Files/Pods-GIPHYSearcher/Pods-GIPHYSearcher.release.xcconfig"; sourceTree = "<group>"; };
 		4712ECB42B8336A3009B6BE9 /* GIPHYSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIPHYSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4712ECB72B8336A3009B6BE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4712ECB92B8336A3009B6BE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +46,8 @@
 		476A85D42B883D660003E6D6 /* TredingDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TredingDataModel.swift; sourceTree = "<group>"; };
 		476A85D52B883D660003E6D6 /* TrendingAPIData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingAPIData.swift; sourceTree = "<group>"; };
 		476A85D62B883D660003E6D6 /* TrendingAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingAPIManager.swift; sourceTree = "<group>"; };
+		A528527BAB12FADB0DFDE62B /* Pods-GIPHYSearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GIPHYSearcher.debug.xcconfig"; path = "Target Support Files/Pods-GIPHYSearcher/Pods-GIPHYSearcher.debug.xcconfig"; sourceTree = "<group>"; };
+		D8F7A1B2673660EDE6EDC4CE /* Pods_GIPHYSearcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GIPHYSearcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,17 +57,29 @@
 			files = (
 				4712ECE22B84D155009B6BE9 /* SnapKit in Frameworks */,
 				4712ECE42B84D155009B6BE9 /* SnapKit-Dynamic in Frameworks */,
+				E08FA3042085B2B8C7AE0FA9 /* Pods_GIPHYSearcher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FBECD8780E49C9E758F3C97 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A528527BAB12FADB0DFDE62B /* Pods-GIPHYSearcher.debug.xcconfig */,
+				4070B8F356873457E9D66C78 /* Pods-GIPHYSearcher.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		4712ECAB2B8336A3009B6BE9 = {
 			isa = PBXGroup;
 			children = (
 				4712ECB62B8336A3009B6BE9 /* GIPHYSearcher */,
 				4712ECB52B8336A3009B6BE9 /* Products */,
+				3FBECD8780E49C9E758F3C97 /* Pods */,
+				7E538E1A59A5A6DC04858E17 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -170,6 +186,14 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
+		7E538E1A59A5A6DC04858E17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8F7A1B2673660EDE6EDC4CE /* Pods_GIPHYSearcher.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -177,9 +201,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4712ECC82B8336A4009B6BE9 /* Build configuration list for PBXNativeTarget "GIPHYSearcher" */;
 			buildPhases = (
+				C618D48C2452A30C65E822C3 /* [CP] Check Pods Manifest.lock */,
 				4712ECB02B8336A3009B6BE9 /* Sources */,
 				4712ECB12B8336A3009B6BE9 /* Frameworks */,
 				4712ECB22B8336A3009B6BE9 /* Resources */,
+				3A26E0FE9CA212AE1DB0FA5B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,6 +268,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A26E0FE9CA212AE1DB0FA5B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GIPHYSearcher/Pods-GIPHYSearcher-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GIPHYSearcher/Pods-GIPHYSearcher-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GIPHYSearcher/Pods-GIPHYSearcher-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C618D48C2452A30C65E822C3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GIPHYSearcher-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4712ECB02B8336A3009B6BE9 /* Sources */ = {
@@ -398,12 +466,14 @@
 		};
 		4712ECC92B8336A4009B6BE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A528527BAB12FADB0DFDE62B /* Pods-GIPHYSearcher.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MA5KYZD992;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GIPHYSearcher/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -429,12 +499,14 @@
 		};
 		4712ECCA2B8336A4009B6BE9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4070B8F356873457E9D66C78 /* Pods-GIPHYSearcher.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MA5KYZD992;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GIPHYSearcher/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -8,12 +8,10 @@
 import Foundation
 import UIKit
 import SnapKit
+import JellyGif
 
 class TrendingCollectionViewCell: UICollectionViewCell {
-    let testImageView: UIImageView = {
-        let view = UIImageView()
-        return view
-    }()
+    let testImageView = JellyGifImageView() 
     
     override init(frame: CGRect) {
         super.init(frame: frame)

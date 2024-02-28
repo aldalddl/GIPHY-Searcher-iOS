@@ -7,8 +7,12 @@
 
 import UIKit
 import SnapKit
+import JellyGif
 
 class MainViewController: UIViewController {
+    var trendingAPIManager = TrendingAPIManager()
+    var trendingData = [TredingDataModel]()
+    
     let trendingCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
@@ -30,6 +34,8 @@ class MainViewController: UIViewController {
         
         setUp()
         layout()
+        
+        apiSetUp()
     }
     
     func setUp() {
@@ -54,22 +60,42 @@ class MainViewController: UIViewController {
             make.edges.equalToSuperview().inset(20)
         }
     }
+}
+// MARK: API Response
+extension MainViewController: TrendingAPIManagerDelegate {
+    func didUpdateTrending(data: [TredingDataModel]) {
+        self.trendingData = data
+        
+        DispatchQueue.main.async {
+            self.trendingCollectionView.reloadData()
+        }
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
+    
+    func apiSetUp() {
+        trendingAPIManager.delegate = self
+        trendingAPIManager.fetchTrending()
+    }
+}
 
 }
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // TODO: 샘플 데이터 수를 서버 데이터 수로 대체하는 작업 필요
-        return 13
+        return self.trendingData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrendingCollectionViewCell", for: indexPath) as? TrendingCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
-        // TODO: 샘플 데이터를 서버 데이터로 대체하는 작업 필요
-        cell.testImageView.image = UIImage(named: "TestImage")
+                
+        if let url = URL(string: self.trendingData[indexPath.row].url) {
+            cell.testImageView.startGif(with: .localPath(url))
+        }
         
         return cell
     }

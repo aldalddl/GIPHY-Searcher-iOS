@@ -29,6 +29,8 @@ class MainViewController: UIViewController {
         return collectionView
     }()
     
+    var bookmarkButtonActive = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()        
         
@@ -61,6 +63,20 @@ class MainViewController: UIViewController {
         }
     }
 }
+
+// MARK: Functions
+extension MainViewController {
+    @objc func bookmarkButtonDidTapped(_ sender: UIButton) {
+        bookmarkButtonActive = !bookmarkButtonActive
+        
+        if bookmarkButtonActive {
+            sender.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        } else {
+            sender.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        }
+    }
+}
+
 // MARK: API Response
 extension MainViewController: TrendingAPIManagerDelegate {
     func didUpdateTrending(data: [TredingDataModel]) {
@@ -81,8 +97,6 @@ extension MainViewController: TrendingAPIManagerDelegate {
     }
 }
 
-}
-
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.trendingData.count
@@ -96,6 +110,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if let url = URL(string: self.trendingData[indexPath.row].url) {
             cell.testImageView.startGif(with: .localPath(url))
         }
+        
+        cell.bookmarkButton.addTarget(self, action: #selector(self.bookmarkButtonDidTapped(_ :)), for: .touchUpInside)
         
         return cell
     }

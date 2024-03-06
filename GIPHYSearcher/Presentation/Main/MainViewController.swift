@@ -69,11 +69,18 @@ extension MainViewController {
     @objc func bookmarkButtonDidTapped(_ sender: UIButton) {
         bookmarkButtonActive = !bookmarkButtonActive
         
+        let navVC = tabBarController?.viewControllers![1] as! UINavigationController
+        let bookmarkVC = navVC.topViewController as! BookmarkViewController
+        
         if bookmarkButtonActive {
             sender.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            bookmarkVC.bookmarkedData.append(self.trendingData[sender.tag])
         } else {
             sender.setImage(UIImage(systemName: "bookmark"), for: .normal)
+            bookmarkVC.bookmarkedData.remove(at: sender.tag)
         }
+        
+        bookmarkVC.bookmarkCollectionView.reloadData()
     }
 }
 
@@ -111,6 +118,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.testImageView.startGif(with: .localPath(url))
         }
         
+        cell.bookmarkButton.tag = indexPath.row
         cell.bookmarkButton.addTarget(self, action: #selector(self.bookmarkButtonDidTapped(_ :)), for: .touchUpInside)
         
         return cell

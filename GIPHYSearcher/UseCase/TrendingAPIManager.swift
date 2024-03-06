@@ -8,7 +8,7 @@
 import Foundation
 
 protocol TrendingAPIManagerDelegate {
-    func didUpdateTrending(data: [TredingDataModel])
+    func didUpdateTrending(data: [gifDataModel])
     func didFailWithError(error: Error)
 }
 
@@ -43,12 +43,12 @@ struct TrendingAPIManager {
         }
     }
     
-    func parseJSON(_ trendingData: Data) -> [TredingDataModel]? {
+    func parseJSON(_ trendingData: Data) -> [gifDataModel]? {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(Trending.self, from: trendingData)
             let data = decodedData.data
-            var trendingData = [TredingDataModel]()
+            var trendingData = [gifDataModel]()
             
             var id = ""
             var url = ""
@@ -61,7 +61,7 @@ struct TrendingAPIManager {
                 title = decodedData.data[index].title
                 username = decodedData.data[index].username
                 
-                trendingData.append(TredingDataModel(id: id, url: url, title: title, username: username))
+                trendingData.append(gifDataModel(id: id, url: url, title: title, username: username))
             }
             
             return trendingData

@@ -11,8 +11,8 @@ import JellyGif
 
 class MainViewController: UIViewController {
     var trendingAPIManager = TrendingAPIManager()
-    var trendingData = [TredingDataModel]()
-    
+    var trendingData = [gifDataModel]()
+
     let trendingCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
@@ -79,7 +79,7 @@ extension MainViewController {
 
 // MARK: API Response
 extension MainViewController: TrendingAPIManagerDelegate {
-    func didUpdateTrending(data: [TredingDataModel]) {
+    func didUpdateTrending(data: [gifDataModel]) {
         self.trendingData = data
         
         DispatchQueue.main.async {

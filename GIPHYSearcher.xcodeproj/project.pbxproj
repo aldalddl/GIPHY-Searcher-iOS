@@ -21,7 +21,7 @@
 		4712ECF32B852366009B6BE9 /* TrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4712ECF22B852366009B6BE9 /* TrendingCollectionViewCell.swift */; };
 		476A85D82B883D660003E6D6 /* APIKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 476A85D22B883D660003E6D6 /* APIKey.plist */; };
 		476A85D92B883D660003E6D6 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D32B883D660003E6D6 /* Bundle.swift */; };
-		476A85DA2B883D660003E6D6 /* TredingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D42B883D660003E6D6 /* TredingDataModel.swift */; };
+		476A85DA2B883D660003E6D6 /* gifDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D42B883D660003E6D6 /* gifDataModel.swift */; };
 		476A85DB2B883D660003E6D6 /* TrendingAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D52B883D660003E6D6 /* TrendingAPIData.swift */; };
 		476A85DC2B883D660003E6D6 /* TrendingAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D62B883D660003E6D6 /* TrendingAPIManager.swift */; };
 		E08FA3042085B2B8C7AE0FA9 /* Pods_GIPHYSearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F7A1B2673660EDE6EDC4CE /* Pods_GIPHYSearcher.framework */; };
@@ -43,7 +43,7 @@
 		4712ECF22B852366009B6BE9 /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
 		476A85D22B883D660003E6D6 /* APIKey.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIKey.plist; sourceTree = "<group>"; };
 		476A85D32B883D660003E6D6 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
-		476A85D42B883D660003E6D6 /* TredingDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TredingDataModel.swift; sourceTree = "<group>"; };
+		476A85D42B883D660003E6D6 /* gifDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gifDataModel.swift; sourceTree = "<group>"; };
 		476A85D52B883D660003E6D6 /* TrendingAPIData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingAPIData.swift; sourceTree = "<group>"; };
 		476A85D62B883D660003E6D6 /* TrendingAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingAPIManager.swift; sourceTree = "<group>"; };
 		A528527BAB12FADB0DFDE62B /* Pods-GIPHYSearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GIPHYSearcher.debug.xcconfig"; path = "Target Support Files/Pods-GIPHYSearcher/Pods-GIPHYSearcher.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 			children = (
 				476A85D22B883D660003E6D6 /* APIKey.plist */,
 				476A85D32B883D660003E6D6 /* Bundle.swift */,
-				476A85D42B883D660003E6D6 /* TredingDataModel.swift */,
+				476A85D42B883D660003E6D6 /* gifDataModel.swift */,
 				476A85D52B883D660003E6D6 /* TrendingAPIData.swift */,
 				476A85D62B883D660003E6D6 /* TrendingAPIManager.swift */,
 			);
@@ -321,7 +321,7 @@
 				476A85DB2B883D660003E6D6 /* TrendingAPIData.swift in Sources */,
 				476A85D92B883D660003E6D6 /* Bundle.swift in Sources */,
 				4712ECF32B852366009B6BE9 /* TrendingCollectionViewCell.swift in Sources */,
-				476A85DA2B883D660003E6D6 /* TredingDataModel.swift in Sources */,
+				476A85DA2B883D660003E6D6 /* gifDataModel.swift in Sources */,
 				4712ECEE2B85227B009B6BE9 /* MainTabBarController.swift in Sources */,
 				4712ECBC2B8336A3009B6BE9 /* MainViewController.swift in Sources */,
 				4712ECB82B8336A3009B6BE9 /* AppDelegate.swift in Sources */,

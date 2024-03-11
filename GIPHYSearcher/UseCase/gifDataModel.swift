@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TredingDataModel {
+struct gifDataModel {
     let id: String
     let url: String
     let title: String

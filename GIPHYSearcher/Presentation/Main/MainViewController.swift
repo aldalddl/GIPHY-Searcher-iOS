@@ -114,8 +114,22 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return UICollectionViewCell()
         }
                 
-        if let url = URL(string: self.trendingData[indexPath.row].url) {
-            cell.testImageView.startGif(with: .localPath(url))
+        guard let imageUrl = URL(string: self.trendingData[indexPath.row].url) else {
+            cell.testImageView.image = UIImage(systemName: "photo")
+            return cell
+        }
+
+        if let cacheImage = ImageCacheManager.shared.getCacheImageData(urlString: imageUrl.absoluteString) {
+            if indexPath == collectionView.indexPath(for: cell) {
+                cell.testImageView.startGif(with: .data(cacheImage))
+            }
+        } else {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: imageUrl) {
+                    ImageCacheManager.shared.setCacheImage(imageData: data, urlString: imageUrl.absoluteString)
+                    cell.testImageView.startGif(with: .localPath(imageUrl))
+                }
+            }
         }
         
         cell.bookmarkButton.tag = indexPath.row

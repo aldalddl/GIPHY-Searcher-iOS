@@ -35,6 +35,8 @@ class TrendingCollectionViewCell: UICollectionViewCell {
         self.contentView.backgroundColor = .backgroundColor
         self.contentView.clipsToBounds = true
         self.contentView.layer.cornerRadius = 10
+        
+        self.testImageView.startGif(with: .name("LoadingImage"))
     }
     
     func layout() {

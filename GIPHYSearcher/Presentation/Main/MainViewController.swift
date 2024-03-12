@@ -113,9 +113,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrendingCollectionViewCell", for: indexPath) as? TrendingCollectionViewCell else {
             return UICollectionViewCell()
         }
-                
-        guard let imageUrl = URL(string: self.trendingData[indexPath.row].url) else {
-            cell.testImageView.image = UIImage(systemName: "photo")
+                        
+        guard let imageUrl = URL(string: trendingData[indexPath.row].url) else {
+            cell.testImageView.startGif(with: .name("LoadingImage"))
             return cell
         }
 

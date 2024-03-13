@@ -11,8 +11,8 @@ import JellyGif
 
 class MainViewController: UIViewController {
     var trendingAPIManager = TrendingAPIManager()
-    var trendingData = [gifDataModel]()
-
+    var bookmarkedData = [gifDataModel]()
+    
     let trendingCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
@@ -28,9 +28,7 @@ class MainViewController: UIViewController {
         
         return collectionView
     }()
-    
-    var bookmarkButtonActive = false
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()        
         
@@ -38,6 +36,15 @@ class MainViewController: UIViewController {
         layout()
         
         apiSetUp()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let data = UserDefaults.standard.object(forKey: "bookmarkedData") as? Data,
+           let decoded = try? JSONDecoder().decode([gifDataModel].self, from: data) {
+            bookmarkedData = decoded
+        }
+        
+        trendingCollectionView.reloadData()
     }
     
     func setUp() {
@@ -66,28 +73,36 @@ class MainViewController: UIViewController {
 
 // MARK: Functions
 extension MainViewController {
-    @objc func bookmarkButtonDidTapped(_ sender: UIButton) {
-        bookmarkButtonActive = !bookmarkButtonActive
+    @objc func bookmarkButtonDidTapped(_ sender: BookmarkButton) {
+        let navigationViewController = tabBarController?.viewControllers![1] as! UINavigationController
+        let bookmarkViewController = navigationViewController.topViewController as! BookmarkViewController
+        var buttonActive = trendingData[sender.tag].bookmarkButtonActive
         
-        let navVC = tabBarController?.viewControllers![1] as! UINavigationController
-        let bookmarkVC = navVC.topViewController as! BookmarkViewController
-        
-        if bookmarkButtonActive {
+        if !buttonActive {
             sender.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-            bookmarkVC.bookmarkedData.append(self.trendingData[sender.tag])
+            self.bookmarkedData.append(trendingData[sender.tag])
         } else {
             sender.setImage(UIImage(systemName: "bookmark"), for: .normal)
-            bookmarkVC.bookmarkedData.remove(at: sender.tag)
+            
+            if let filteredIndex = trendingData.firstIndex(where: { $0.id == sender.customTag }) {
+                self.bookmarkedData.remove(at: filteredIndex)
+            }
+        }
+    
+        if let encoded = try? JSONEncoder().encode(self.bookmarkedData) {
+            UserDefaults.standard.set(encoded, forKey: "bookmarkedData")
         }
         
-        bookmarkVC.bookmarkCollectionView.reloadData()
+        buttonActive = !buttonActive
+
+        bookmarkViewController.bookmarkCollectionView.reloadData()
     }
 }
 
 // MARK: API Response
 extension MainViewController: TrendingAPIManagerDelegate {
     func didUpdateTrending(data: [gifDataModel]) {
-        self.trendingData = data
+        trendingData = data
         
         DispatchQueue.main.async {
             self.trendingCollectionView.reloadData()
@@ -106,16 +121,16 @@ extension MainViewController: TrendingAPIManagerDelegate {
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.trendingData.count
+        return trendingData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrendingCollectionViewCell", for: indexPath) as? TrendingCollectionViewCell else {
             return UICollectionViewCell()
         }
-                
-        guard let imageUrl = URL(string: self.trendingData[indexPath.row].url) else {
-            cell.testImageView.image = UIImage(systemName: "photo")
+                        
+        guard let imageUrl = URL(string: trendingData[indexPath.row].url) else {
+            cell.testImageView.startGif(with: .name("LoadingImage"))
             return cell
         }
 
@@ -132,7 +147,18 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
         }
         
+        let cellId = trendingData[indexPath.row].id
+        
+        if self.bookmarkedData.contains(where: { $0.id == cellId }) {
+            cell.bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            trendingData[indexPath.row].bookmarkButtonActive = true
+        } else {
+            cell.bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+            trendingData[indexPath.row].bookmarkButtonActive = false
+        }
+        
         cell.bookmarkButton.tag = indexPath.row
+        cell.bookmarkButton.customTag = trendingData[indexPath.row].id
         cell.bookmarkButton.addTarget(self, action: #selector(self.bookmarkButtonDidTapped(_ :)), for: .touchUpInside)
         
         return cell

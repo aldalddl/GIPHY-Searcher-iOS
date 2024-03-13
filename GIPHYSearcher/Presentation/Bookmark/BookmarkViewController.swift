@@ -28,14 +28,19 @@ class BookmarkViewController: UIViewController {
         
         return collectionView
     }()
-    
-    var bookmarkButtonActive = true
-        
+            
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUp()
         layout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let data = UserDefaults.standard.object(forKey: "bookmarkedData") as? Data,
+           let decoded = try? JSONDecoder().decode([gifDataModel].self, from: data) {
+            bookmarkedData = decoded
+        }
     }
     
     func setUp() {
@@ -60,14 +65,17 @@ class BookmarkViewController: UIViewController {
 
 // MARK: Functions
 extension BookmarkViewController {
-    @objc func bookmarkButtonDidTapped(_ sender: UIButton) {
-        bookmarkButtonActive = !bookmarkButtonActive
-
-        if bookmarkButtonActive {
-            sender.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-        } else {
-            sender.setImage(UIImage(systemName: "bookmark"), for: .normal)
+    @objc func bookmarkButtonDidTapped(_ sender: BookmarkButton) {        
+        self.bookmarkedData.remove(at: sender.tag)
+        
+        if let encoded = try? JSONEncoder().encode(bookmarkedData) {
+            UserDefaults.standard.set(encoded, forKey: "bookmarkedData")
         }
+        
+        trendingData[sender.tag].bookmarkButtonActive = !trendingData[sender.tag].bookmarkButtonActive
+        sender.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        
+        self.bookmarkCollectionView.reloadData()
     }
 }
 
@@ -86,6 +94,8 @@ extension BookmarkViewController: UICollectionViewDelegate, UICollectionViewData
         }
         
         cell.bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        cell.bookmarkButton.tag = indexPath.row
+        cell.bookmarkButton.customTag = self.bookmarkedData[indexPath.row].id
         cell.bookmarkButton.addTarget(self, action: #selector(self.bookmarkButtonDidTapped(_ :)), for: .touchUpInside)
         
         return cell

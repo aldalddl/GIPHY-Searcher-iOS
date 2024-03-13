@@ -61,7 +61,7 @@ struct TrendingAPIManager {
                 title = decodedData.data[index].title
                 username = decodedData.data[index].username
                 
-                trendingData.append(gifDataModel(id: id, url: url, title: title, username: username))
+                trendingData.append(gifDataModel(id: id, url: url, title: title, username: username, bookmarkButtonActive: false))
             }
             
             return trendingData

@@ -60,13 +60,13 @@ class BookmarkViewController: UIViewController {
 
 // MARK: Functions
 extension BookmarkViewController {
-    @objc func bookmarkButtonDidTapped(_ sender: UIButton) {
         bookmarkButtonActive = !bookmarkButtonActive
 
         if bookmarkButtonActive {
             sender.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
         } else {
             sender.setImage(UIImage(systemName: "bookmark"), for: .normal)
+    @objc func bookmarkButtonDidTapped(_ sender: BookmarkButton) {        
         }
     }
 }
@@ -86,6 +86,8 @@ extension BookmarkViewController: UICollectionViewDelegate, UICollectionViewData
         }
         
         cell.bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        cell.bookmarkButton.tag = indexPath.row
+        cell.bookmarkButton.customTag = self.bookmarkedData[indexPath.row].id
         cell.bookmarkButton.addTarget(self, action: #selector(self.bookmarkButtonDidTapped(_ :)), for: .touchUpInside)
         
         return cell

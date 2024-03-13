@@ -13,12 +13,7 @@ import JellyGif
 class TrendingCollectionViewCell: UICollectionViewCell {
     let testImageView = JellyGifImageView() 
     
-    let bookmarkButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "bookmark"), for: .normal)
-        button.tintColor = .white
-        return button
-    }()
+    let bookmarkButton = BookmarkButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

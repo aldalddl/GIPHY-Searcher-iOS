@@ -66,8 +66,8 @@ class MainViewController: UIViewController {
 
 // MARK: Functions
 extension MainViewController {
-    @objc func bookmarkButtonDidTapped(_ sender: UIButton) {
         bookmarkButtonActive = !bookmarkButtonActive
+    @objc func bookmarkButtonDidTapped(_ sender: BookmarkButton) {
         
         let navVC = tabBarController?.viewControllers![1] as! UINavigationController
         let bookmarkVC = navVC.topViewController as! BookmarkViewController
@@ -77,7 +77,10 @@ extension MainViewController {
             bookmarkVC.bookmarkedData.append(self.trendingData[sender.tag])
         } else {
             sender.setImage(UIImage(systemName: "bookmark"), for: .normal)
-            bookmarkVC.bookmarkedData.remove(at: sender.tag)
+            
+            if let filteredIndex = trendingData.firstIndex(where: { $0.id == sender.customTag }) {
+                bookmarkedData.remove(at: filteredIndex)
+            }
         }
         
         bookmarkVC.bookmarkCollectionView.reloadData()
@@ -133,6 +136,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         
         cell.bookmarkButton.tag = indexPath.row
+        cell.bookmarkButton.customTag = trendingData[indexPath.row].id
         cell.bookmarkButton.addTarget(self, action: #selector(self.bookmarkButtonDidTapped(_ :)), for: .touchUpInside)
         
         return cell

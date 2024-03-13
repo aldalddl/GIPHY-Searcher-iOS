@@ -28,9 +28,7 @@ class BookmarkViewController: UIViewController {
         
         return collectionView
     }()
-    
-    var bookmarkButtonActive = true
-        
+            
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,14 +58,15 @@ class BookmarkViewController: UIViewController {
 
 // MARK: Functions
 extension BookmarkViewController {
-        bookmarkButtonActive = !bookmarkButtonActive
-
-        if bookmarkButtonActive {
-            sender.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-        } else {
-            sender.setImage(UIImage(systemName: "bookmark"), for: .normal)
     @objc func bookmarkButtonDidTapped(_ sender: BookmarkButton) {        
+        self.bookmarkedData.remove(at: sender.tag)
+        
         }
+        
+        trendingData[sender.tag].bookmarkButtonActive = !trendingData[sender.tag].bookmarkButtonActive
+        sender.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        
+        self.bookmarkCollectionView.reloadData()
     }
 }
 

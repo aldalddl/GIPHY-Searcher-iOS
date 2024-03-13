@@ -21,4 +21,14 @@ class BookmarkButton: UIButton {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    @objc func clickBookmarkButton(_ sender: BookmarkButton) {
+        var buttonActive = trendingData[sender.tag].bookmarkButtonActive
+        
+        if !buttonActive {
+            sender.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        } else {
+            sender.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        }
+    }
 }

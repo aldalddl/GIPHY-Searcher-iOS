@@ -12,4 +12,7 @@ struct gifDataModel {
     let url: String
     let title: String
     let username: String
+    var bookmarkButtonActive: Bool
 }
+
+var trendingData = [gifDataModel]()

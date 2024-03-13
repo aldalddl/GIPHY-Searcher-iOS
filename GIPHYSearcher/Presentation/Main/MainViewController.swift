@@ -11,8 +11,8 @@ import JellyGif
 
 class MainViewController: UIViewController {
     var trendingAPIManager = TrendingAPIManager()
-    var trendingData = [gifDataModel]()
-
+    var bookmarkedData = [gifDataModel]()
+    
     let trendingCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
@@ -28,9 +28,7 @@ class MainViewController: UIViewController {
         
         return collectionView
     }()
-    
-    var bookmarkButtonActive = false
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()        
         
@@ -66,31 +64,32 @@ class MainViewController: UIViewController {
 
 // MARK: Functions
 extension MainViewController {
-        bookmarkButtonActive = !bookmarkButtonActive
     @objc func bookmarkButtonDidTapped(_ sender: BookmarkButton) {
+        let navigationViewController = tabBarController?.viewControllers![1] as! UINavigationController
+        let bookmarkViewController = navigationViewController.topViewController as! BookmarkViewController
+        var buttonActive = trendingData[sender.tag].bookmarkButtonActive
         
-        let navVC = tabBarController?.viewControllers![1] as! UINavigationController
-        let bookmarkVC = navVC.topViewController as! BookmarkViewController
-        
-        if bookmarkButtonActive {
+        if !buttonActive {
             sender.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-            bookmarkVC.bookmarkedData.append(self.trendingData[sender.tag])
+            self.bookmarkedData.append(trendingData[sender.tag])
         } else {
             sender.setImage(UIImage(systemName: "bookmark"), for: .normal)
             
             if let filteredIndex = trendingData.firstIndex(where: { $0.id == sender.customTag }) {
-                bookmarkedData.remove(at: filteredIndex)
+                self.bookmarkedData.remove(at: filteredIndex)
             }
         }
         
-        bookmarkVC.bookmarkCollectionView.reloadData()
+        buttonActive = !buttonActive
+
+        bookmarkViewController.bookmarkCollectionView.reloadData()
     }
 }
 
 // MARK: API Response
 extension MainViewController: TrendingAPIManagerDelegate {
     func didUpdateTrending(data: [gifDataModel]) {
-        self.trendingData = data
+        trendingData = data
         
         DispatchQueue.main.async {
             self.trendingCollectionView.reloadData()
@@ -109,7 +108,7 @@ extension MainViewController: TrendingAPIManagerDelegate {
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.trendingData.count
+        return trendingData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -133,6 +132,16 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                     cell.testImageView.startGif(with: .localPath(imageUrl))
                 }
             }
+        }
+        
+        let cellId = trendingData[indexPath.row].id
+        
+        if self.bookmarkedData.contains(where: { $0.id == cellId }) {
+            cell.bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            trendingData[indexPath.row].bookmarkButtonActive = true
+        } else {
+            cell.bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+            trendingData[indexPath.row].bookmarkButtonActive = false
         }
         
         cell.bookmarkButton.tag = indexPath.row

@@ -36,6 +36,13 @@ class BookmarkViewController: UIViewController {
         layout()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if let data = UserDefaults.standard.object(forKey: "bookmarkedData") as? Data,
+           let decoded = try? JSONDecoder().decode([gifDataModel].self, from: data) {
+            bookmarkedData = decoded
+        }
+    }
+    
     func setUp() {
         self.view.backgroundColor = .backgroundColor
         
@@ -61,6 +68,8 @@ extension BookmarkViewController {
     @objc func bookmarkButtonDidTapped(_ sender: BookmarkButton) {        
         self.bookmarkedData.remove(at: sender.tag)
         
+        if let encoded = try? JSONEncoder().encode(bookmarkedData) {
+            UserDefaults.standard.set(encoded, forKey: "bookmarkedData")
         }
         
         trendingData[sender.tag].bookmarkButtonActive = !trendingData[sender.tag].bookmarkButtonActive

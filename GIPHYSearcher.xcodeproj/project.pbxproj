@@ -330,7 +330,7 @@
 				476A85D92B883D660003E6D6 /* Bundle.swift in Sources */,
 				4712ECF32B852366009B6BE9 /* TrendingCollectionViewCell.swift in Sources */,
 				476A85E22B8F1EEA0003E6D6 /* ImageCacheManager.swift in Sources */,
-				476A85DA2B883D660003E6D6 /* TredingDataModel.swift in Sources */,
+				476A85DA2B883D660003E6D6 /* gifDataModel.swift in Sources */,
 				4712ECEE2B85227B009B6BE9 /* MainTabBarController.swift in Sources */,
 				4712ECBC2B8336A3009B6BE9 /* MainViewController.swift in Sources */,
 				4712ECB82B8336A3009B6BE9 /* AppDelegate.swift in Sources */,

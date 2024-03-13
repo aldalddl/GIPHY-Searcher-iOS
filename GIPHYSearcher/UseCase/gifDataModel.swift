@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct gifDataModel {
+struct gifDataModel: Codable {
     let id: String
     let url: String
     let title: String

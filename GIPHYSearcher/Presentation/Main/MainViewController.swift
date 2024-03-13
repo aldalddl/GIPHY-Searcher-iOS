@@ -38,6 +38,15 @@ class MainViewController: UIViewController {
         apiSetUp()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if let data = UserDefaults.standard.object(forKey: "bookmarkedData") as? Data,
+           let decoded = try? JSONDecoder().decode([gifDataModel].self, from: data) {
+            bookmarkedData = decoded
+        }
+        
+        trendingCollectionView.reloadData()
+    }
+    
     func setUp() {
         self.view.backgroundColor = .backgroundColor
         
@@ -78,6 +87,10 @@ extension MainViewController {
             if let filteredIndex = trendingData.firstIndex(where: { $0.id == sender.customTag }) {
                 self.bookmarkedData.remove(at: filteredIndex)
             }
+        }
+    
+        if let encoded = try? JSONEncoder().encode(self.bookmarkedData) {
+            UserDefaults.standard.set(encoded, forKey: "bookmarkedData")
         }
         
         buttonActive = !buttonActive

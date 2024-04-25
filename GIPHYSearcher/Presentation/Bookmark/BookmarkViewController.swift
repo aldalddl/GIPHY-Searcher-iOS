@@ -88,10 +88,10 @@ extension BookmarkViewController: UICollectionViewDelegate, UICollectionViewData
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookmarkCollectionViewCell", for: indexPath) as? TrendingCollectionViewCell else {
             return UICollectionViewCell()
         }
-                
-        if let url = URL(string: self.bookmarkedData[indexPath.row].url) {
-            cell.testImageView.startGif(with: .localPath(url))
-        }
+
+        let url = URL(string: self.bookmarkedData[indexPath.row].url)
+        let placeholder = "LoadingImage"
+        cell.imageView.setImage(url: url, placeholder: placeholder)
         
         cell.bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
         cell.bookmarkButton.tag = indexPath.row

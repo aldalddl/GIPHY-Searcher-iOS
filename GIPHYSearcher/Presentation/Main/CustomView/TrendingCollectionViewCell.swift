@@ -11,8 +11,7 @@ import SnapKit
 import JellyGif
 
 class TrendingCollectionViewCell: UICollectionViewCell {
-    let testImageView = JellyGifImageView() 
-    
+    let imageView = UIImageView()
     let bookmarkButton = BookmarkButton()
     
     override init(frame: CGRect) {
@@ -21,7 +20,7 @@ class TrendingCollectionViewCell: UICollectionViewCell {
         setUp()
         layout()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -30,15 +29,14 @@ class TrendingCollectionViewCell: UICollectionViewCell {
         self.contentView.backgroundColor = .backgroundColor
         self.contentView.clipsToBounds = true
         self.contentView.layer.cornerRadius = 10
-        
-        self.testImageView.startGif(with: .name("LoadingImage"))
     }
     
     func layout() {
-        self.contentView.addSubview(testImageView)
+        self.contentView.addSubview(imageView)
+        
         self.contentView.addSubview(bookmarkButton)
         
-        testImageView.snp.makeConstraints { make in
+        imageView.snp.makeConstraints { make in
             make.left.right.top.bottom.equalToSuperview()
         }
         

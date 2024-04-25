@@ -17,16 +17,17 @@
 		4712ECEE2B85227B009B6BE9 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4712ECED2B85227B009B6BE9 /* MainTabBarController.swift */; };
 		4712ECF02B852307009B6BE9 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4712ECEF2B852307009B6BE9 /* ColorExtension.swift */; };
 		4712ECF32B852366009B6BE9 /* TrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4712ECF22B852366009B6BE9 /* TrendingCollectionViewCell.swift */; };
+		4727267F2BD7752F00B37D2E /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4727267E2BD7752F00B37D2E /* UIImageViewExtension.swift */; };
 		476A85D92B883D660003E6D6 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D32B883D660003E6D6 /* Bundle.swift */; };
 		476A85DA2B883D660003E6D6 /* gifDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D42B883D660003E6D6 /* gifDataModel.swift */; };
 		476A85DB2B883D660003E6D6 /* TrendingAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D52B883D660003E6D6 /* TrendingAPIData.swift */; };
 		476A85DC2B883D660003E6D6 /* TrendingAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D62B883D660003E6D6 /* TrendingAPIManager.swift */; };
-		476A85E82B9865260003E6D6 /* APIKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 476A85E72B9865250003E6D6 /* APIKey.plist */; };
 		476A85EC2B9C5A260003E6D6 /* BookmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85EB2B9C5A260003E6D6 /* BookmarkButton.swift */; };
 		476A86012BA0675E0003E6D6 /* LoadingImage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 476A86002BA0675E0003E6D6 /* LoadingImage.gif */; };
-		476A86112BA1A06A0003E6D6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4712ECE12B84D155009B6BE9 /* SnapKit */; };
-		476A86122BA1A06A0003E6D6 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 4712ECE32B84D155009B6BE9 /* SnapKit-Dynamic */; };
 		476A86142BA1A07E0003E6D6 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A86132BA1A07E0003E6D6 /* ImageCacheManager.swift */; };
+		47EE0C002BAAB7360019C7A3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4712ECE12B84D155009B6BE9 /* SnapKit */; };
+		47EE0C012BAAB7360019C7A3 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 4712ECE32B84D155009B6BE9 /* SnapKit-Dynamic */; };
+		47EE0C032BAAB9E30019C7A3 /* APIKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47EE0C022BAAB9E30019C7A3 /* APIKey.plist */; };
 		E08FA3042085B2B8C7AE0FA9 /* Pods_GIPHYSearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F7A1B2673660EDE6EDC4CE /* Pods_GIPHYSearcher.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,14 +45,15 @@
 		4712ECED2B85227B009B6BE9 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		4712ECEF2B852307009B6BE9 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		4712ECF22B852366009B6BE9 /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
+		4727267E2BD7752F00B37D2E /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		476A85D32B883D660003E6D6 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		476A85D42B883D660003E6D6 /* gifDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gifDataModel.swift; sourceTree = "<group>"; };
 		476A85D52B883D660003E6D6 /* TrendingAPIData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingAPIData.swift; sourceTree = "<group>"; };
 		476A85D62B883D660003E6D6 /* TrendingAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingAPIManager.swift; sourceTree = "<group>"; };
-		476A85E72B9865250003E6D6 /* APIKey.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIKey.plist; sourceTree = "<group>"; };
 		476A85EB2B9C5A260003E6D6 /* BookmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkButton.swift; sourceTree = "<group>"; };
 		476A86002BA0675E0003E6D6 /* LoadingImage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = LoadingImage.gif; path = GIPHYSearcher/Resources/Assets.xcassets/LoadingImage.dataset/LoadingImage.gif; sourceTree = "<group>"; };
 		476A86132BA1A07E0003E6D6 /* ImageCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		47EE0C022BAAB9E30019C7A3 /* APIKey.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIKey.plist; sourceTree = "<group>"; };
 		A528527BAB12FADB0DFDE62B /* Pods-GIPHYSearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GIPHYSearcher.debug.xcconfig"; path = "Target Support Files/Pods-GIPHYSearcher/Pods-GIPHYSearcher.debug.xcconfig"; sourceTree = "<group>"; };
 		D8F7A1B2673660EDE6EDC4CE /* Pods_GIPHYSearcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GIPHYSearcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -61,8 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4712ECE22B84D155009B6BE9 /* SnapKit in Frameworks */,
-				4712ECE42B84D155009B6BE9 /* SnapKit-Dynamic in Frameworks */,
+				47EE0C012BAAB7360019C7A3 /* SnapKit-Dynamic in Frameworks */,
+				47EE0C002BAAB7360019C7A3 /* SnapKit in Frameworks */,
 				E08FA3042085B2B8C7AE0FA9 /* Pods_GIPHYSearcher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,7 +115,7 @@
 		4712ECD32B84C0A1009B6BE9 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				476A85E72B9865250003E6D6 /* APIKey.plist */,
+				47EE0C022BAAB9E30019C7A3 /* APIKey.plist */,
 				476A86132BA1A07E0003E6D6 /* ImageCacheManager.swift */,
 				476A85D32B883D660003E6D6 /* Bundle.swift */,
 				476A85D42B883D660003E6D6 /* gifDataModel.swift */,
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				4712ECF22B852366009B6BE9 /* TrendingCollectionViewCell.swift */,
+				4727267E2BD7752F00B37D2E /* UIImageViewExtension.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -270,8 +273,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				476A85E82B9865260003E6D6 /* APIKey.plist in Resources */,
 				476A86012BA0675E0003E6D6 /* LoadingImage.gif in Resources */,
+				47EE0C032BAAB9E30019C7A3 /* APIKey.plist in Resources */,
 				4712ECC42B8336A4009B6BE9 /* LaunchScreen.storyboard in Resources */,
 				4712ECC12B8336A4009B6BE9 /* Assets.xcassets in Resources */,
 			);
@@ -331,6 +334,7 @@
 				476A85DB2B883D660003E6D6 /* TrendingAPIData.swift in Sources */,
 				476A85D92B883D660003E6D6 /* Bundle.swift in Sources */,
 				4712ECF32B852366009B6BE9 /* TrendingCollectionViewCell.swift in Sources */,
+				4727267F2BD7752F00B37D2E /* UIImageViewExtension.swift in Sources */,
 				476A85DA2B883D660003E6D6 /* gifDataModel.swift in Sources */,
 				4712ECEE2B85227B009B6BE9 /* MainTabBarController.swift in Sources */,
 				4712ECBC2B8336A3009B6BE9 /* MainViewController.swift in Sources */,

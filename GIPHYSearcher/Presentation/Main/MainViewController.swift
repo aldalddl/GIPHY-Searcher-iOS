@@ -128,27 +128,13 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrendingCollectionViewCell", for: indexPath) as? TrendingCollectionViewCell else {
             return UICollectionViewCell()
         }
-                        
-        guard let imageUrl = URL(string: trendingData[indexPath.row].url) else {
-            cell.testImageView.startGif(with: .name("LoadingImage"))
-            return cell
-        }
-
-        if let cacheImage = ImageCacheManager.shared.getCacheImageData(urlString: imageUrl.absoluteString) {
-            if indexPath == collectionView.indexPath(for: cell) {
-                cell.testImageView.startGif(with: .data(cacheImage))
-            }
-        } else {
-            DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: imageUrl) {
-                    ImageCacheManager.shared.setCacheImage(imageData: data, urlString: imageUrl.absoluteString)
-                    cell.testImageView.startGif(with: .localPath(imageUrl))
-                }
-            }
-        }
         
         let cellId = trendingData[indexPath.row].id
+        let url = URL(string: trendingData[indexPath.row].url)
+        let placeholder = "LoadingImage"
+        cell.imageView.setImage(url: url, placeholder: placeholder)
         
+        let cellId = trendingData[indexPath.row].id
         if self.bookmarkedData.contains(where: { $0.id == cellId }) {
             cell.bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
             trendingData[indexPath.row].bookmarkButtonActive = true

@@ -26,7 +26,6 @@
 		476A86012BA0675E0003E6D6 /* LoadingImage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 476A86002BA0675E0003E6D6 /* LoadingImage.gif */; };
 		476A86142BA1A07E0003E6D6 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A86132BA1A07E0003E6D6 /* ImageCacheManager.swift */; };
 		47EE0C002BAAB7360019C7A3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4712ECE12B84D155009B6BE9 /* SnapKit */; };
-		47EE0C012BAAB7360019C7A3 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 4712ECE32B84D155009B6BE9 /* SnapKit-Dynamic */; };
 		47EE0C032BAAB9E30019C7A3 /* APIKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47EE0C022BAAB9E30019C7A3 /* APIKey.plist */; };
 		E08FA3042085B2B8C7AE0FA9 /* Pods_GIPHYSearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F7A1B2673660EDE6EDC4CE /* Pods_GIPHYSearcher.framework */; };
 /* End PBXBuildFile section */
@@ -63,7 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47EE0C012BAAB7360019C7A3 /* SnapKit-Dynamic in Frameworks */,
 				47EE0C002BAAB7360019C7A3 /* SnapKit in Frameworks */,
 				E08FA3042085B2B8C7AE0FA9 /* Pods_GIPHYSearcher.framework in Frameworks */,
 			);
@@ -226,7 +224,6 @@
 			name = GIPHYSearcher;
 			packageProductDependencies = (
 				4712ECE12B84D155009B6BE9 /* SnapKit */,
-				4712ECE32B84D155009B6BE9 /* SnapKit-Dynamic */,
 			);
 			productName = GIPHYSearcher;
 			productReference = 4712ECB42B8336A3009B6BE9 /* GIPHYSearcher.app */;
@@ -585,11 +582,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4712ECE02B84D155009B6BE9 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		4712ECE32B84D155009B6BE9 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4712ECE02B84D155009B6BE9 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

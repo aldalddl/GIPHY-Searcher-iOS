@@ -12,6 +12,7 @@ import JellyGif
 class MainViewController: UIViewController {
     var trendingAPIManager = TrendingAPIManager()
     var bookmarkedData = [gifDataModel]()
+    var searchData = [gifDataModel]()
     
     let trendingCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -28,6 +29,13 @@ class MainViewController: UIViewController {
         
         return collectionView
     }()
+    
+    var isFiltering: Bool {
+        let searchController = self.navigationItem.searchController
+        let isActive = searchController?.isActive ?? false
+        let isSearchBarHasText = searchController?.searchBar.text?.isEmpty == false
+        return isActive && isSearchBarHasText
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()        
@@ -55,6 +63,7 @@ class MainViewController: UIViewController {
         
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Search GIFs"
+        searchController.searchResultsUpdater = self
         self.navigationItem.searchController = searchController
         
         trendingCollectionView.dataSource = self
@@ -68,6 +77,16 @@ class MainViewController: UIViewController {
         trendingCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(20)
         }
+    }
+}
+
+// MARK: UISearchResultsUpdating
+extension MainViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text?.lowercased() else { return }
+        searchApiSetUp(text: text)
+        
+        self.trendingCollectionView.reloadData()
     }
 }
 
@@ -100,9 +119,15 @@ extension MainViewController {
 }
 
 // MARK: API Response
-extension MainViewController: TrendingAPIManagerDelegate {
-    func didUpdateTrending(data: [gifDataModel]) {
-        trendingData = data
+extension MainViewController: GiphyAPIManagerDelegate {
+    func didUpdateData(data: [gifDataModel]) {
+        if self.isFiltering {
+            searchData = data
+        } else {
+            trendingData = data
+        }
+
+        print(data)
         
         DispatchQueue.main.async {
             self.trendingCollectionView.reloadData()
@@ -117,11 +142,16 @@ extension MainViewController: TrendingAPIManagerDelegate {
         trendingAPIManager.delegate = self
         trendingAPIManager.fetchTrending()
     }
+    
+    func searchApiSetUp(text: String) {
+        trendingAPIManager.delegate = self
+        trendingAPIManager.fetchSearch(keywords: text)
+    }
 }
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return trendingData.count
+        return self.isFiltering ? self.searchData.count : trendingData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -129,24 +159,46 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return UICollectionViewCell()
         }
         
-        let cellId = trendingData[indexPath.row].id
-        let url = URL(string: trendingData[indexPath.row].url)
         let placeholder = "LoadingImage"
-        cell.imageView.setImage(url: url, placeholder: placeholder)
-        
-        let cellId = trendingData[indexPath.row].id
-        if self.bookmarkedData.contains(where: { $0.id == cellId }) {
-            cell.bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-            trendingData[indexPath.row].bookmarkButtonActive = true
+        var url = URL(string: "")
+        cell.bookmarkButton.tag = indexPath.row
+
+        if self.isFiltering {
+            url = URL(string: searchData[indexPath.row].url)
+            
+            cell.imageView.setImage(url: url, placeholder: placeholder)
+            
+            let cellId = searchData[indexPath.row].id
+            
+            if self.bookmarkedData.contains(where: { $0.id == cellId }) {
+                cell.bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+                searchData[indexPath.row].bookmarkButtonActive = true
+            } else {
+                cell.bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+                searchData[indexPath.row].bookmarkButtonActive = false
+            }
+            
+            cell.bookmarkButton.customTag = searchData[indexPath.row].id
         } else {
-            cell.bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
-            trendingData[indexPath.row].bookmarkButtonActive = false
+            url = URL(string: trendingData[indexPath.row].url)
+            
+            cell.imageView.setImage(url: url, placeholder: placeholder)
+            
+            let cellId = trendingData[indexPath.row].id
+            
+            if self.bookmarkedData.contains(where: { $0.id == cellId }) {
+                cell.bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+                trendingData[indexPath.row].bookmarkButtonActive = true
+            } else {
+                cell.bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+                trendingData[indexPath.row].bookmarkButtonActive = false
+            }
+            
+            cell.bookmarkButton.customTag = trendingData[indexPath.row].id
         }
         
-        cell.bookmarkButton.tag = indexPath.row
-        cell.bookmarkButton.customTag = trendingData[indexPath.row].id
         cell.bookmarkButton.addTarget(self, action: #selector(self.bookmarkButtonDidTapped(_ :)), for: .touchUpInside)
-        
+
         return cell
     }
     

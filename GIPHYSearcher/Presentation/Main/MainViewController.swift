@@ -10,7 +10,7 @@ import SnapKit
 import JellyGif
 
 class MainViewController: UIViewController {
-    var trendingAPIManager = TrendingAPIManager()
+    var trendingAPIManager = GiphyAPIManager()
     var bookmarkedData = [gifDataModel]()
     var searchData = [gifDataModel]()
     

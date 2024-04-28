@@ -55,6 +55,7 @@ class MainViewController: UIViewController {
         trendingCollectionView.reloadData()
     }
     
+    // MARK: SetUp
     func setUp() {
         self.view.backgroundColor = .backgroundColor
         
@@ -71,6 +72,7 @@ class MainViewController: UIViewController {
         trendingCollectionView.register(TrendingCollectionViewCell.self, forCellWithReuseIdentifier: "TrendingCollectionViewCell")
     }
     
+    // MARK: Layout
     func layout() {
         self.view.addSubview(trendingCollectionView)
         

@@ -29,12 +29,7 @@ class MainViewController: UIViewController {
         return collectionView
     }()
     
-    var isFiltering: Bool {
-        let searchController = self.navigationItem.searchController
-        let isActive = searchController?.isActive ?? false
-        let isSearchBarHasText = searchController?.searchBar.text?.isEmpty == false
-        return isActive && isSearchBarHasText
-    }
+    var isFiltering = false
         
     override func viewDidLoad() {
         super.viewDidLoad()        
@@ -69,6 +64,13 @@ class MainViewController: UIViewController {
         gifCollectionView.dataSource = self
         gifCollectionView.delegate = self
         gifCollectionView.register(GifCollectionViewCell.self, forCellWithReuseIdentifier: "GifCollectionViewCell")
+        
+        isFiltering = {
+            let searchController = self.navigationItem.searchController
+            let isActive = searchController?.isActive ?? false
+            let isSearchBarHasText = searchController?.searchBar.text?.isEmpty == false
+            return isActive && isSearchBarHasText
+        }()
     }
     
     // MARK: Layout
@@ -123,7 +125,7 @@ extension MainViewController {
 extension MainViewController: GiphyAPIManagerDelegate {
     func didUpdateData(data: [gifDataModel]) {
         if self.isFiltering {
-            searchData = data
+            self.searchData = data
         } else {
             gifData = data
         }

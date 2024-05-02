@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 import SnapKit
-import JellyGif
 
 class GifCollectionViewCell: UICollectionViewCell {
     let imageView = UIImageView()

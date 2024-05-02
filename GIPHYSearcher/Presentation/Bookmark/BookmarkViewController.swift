@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 import SnapKit
-import JellyGif
 
 class BookmarkViewController: UIViewController {
     var bookmarkedData = [gifDataModel]()

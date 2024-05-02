@@ -1,5 +1,5 @@
 //
-//  TrendingAPIManager.swift
+//  GiphyAPIManager.swift
 //  GIPHYSearcher
 //
 //  Created by 강민지 on 2/21/24.

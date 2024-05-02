@@ -10,11 +10,11 @@ import SnapKit
 import JellyGif
 
 class MainViewController: UIViewController {
-    var trendingAPIManager = GiphyAPIManager()
+    var gifAPIManager = GiphyAPIManager()
     var bookmarkedData = [gifDataModel]()
     var searchData = [gifDataModel]()
     
-    let trendingCollectionView: UICollectionView = {
+    let gifCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
         flowLayout.minimumInteritemSpacing = 8
@@ -52,7 +52,7 @@ class MainViewController: UIViewController {
             bookmarkedData = decoded
         }
         
-        trendingCollectionView.reloadData()
+        gifCollectionView.reloadData()
     }
     
     // MARK: SetUp
@@ -67,16 +67,16 @@ class MainViewController: UIViewController {
         searchController.searchResultsUpdater = self
         self.navigationItem.searchController = searchController
         
-        trendingCollectionView.dataSource = self
-        trendingCollectionView.delegate = self
-        trendingCollectionView.register(TrendingCollectionViewCell.self, forCellWithReuseIdentifier: "TrendingCollectionViewCell")
+        gifCollectionView.dataSource = self
+        gifCollectionView.delegate = self
+        gifCollectionView.register(GifCollectionViewCell.self, forCellWithReuseIdentifier: "GifCollectionViewCell")
     }
     
     // MARK: Layout
     func layout() {
-        self.view.addSubview(trendingCollectionView)
+        self.view.addSubview(gifCollectionView)
         
-        trendingCollectionView.snp.makeConstraints { make in
+        gifCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(20)
         }
     }
@@ -88,7 +88,7 @@ extension MainViewController: UISearchResultsUpdating {
         guard let text = searchController.searchBar.text?.lowercased() else { return }
         searchApiSetUp(text: text)
         
-        self.trendingCollectionView.reloadData()
+        self.gifCollectionView.reloadData()
     }
 }
 
@@ -97,15 +97,15 @@ extension MainViewController {
     @objc func bookmarkButtonDidTapped(_ sender: BookmarkButton) {
         let navigationViewController = tabBarController?.viewControllers![1] as! UINavigationController
         let bookmarkViewController = navigationViewController.topViewController as! BookmarkViewController
-        var buttonActive = trendingData[sender.tag].bookmarkButtonActive
+        var buttonActive = gifData[sender.tag].bookmarkButtonActive
         
         if !buttonActive {
             sender.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-            self.bookmarkedData.append(trendingData[sender.tag])
+            self.bookmarkedData.append(gifData[sender.tag])
         } else {
             sender.setImage(UIImage(systemName: "bookmark"), for: .normal)
             
-            if let filteredIndex = trendingData.firstIndex(where: { $0.id == sender.customTag }) {
+            if let filteredIndex = gifData.firstIndex(where: { $0.id == sender.customTag }) {
                 self.bookmarkedData.remove(at: filteredIndex)
             }
         }
@@ -126,13 +126,13 @@ extension MainViewController: GiphyAPIManagerDelegate {
         if self.isFiltering {
             searchData = data
         } else {
-            trendingData = data
+            gifData = data
         }
 
         print(data)
         
         DispatchQueue.main.async {
-            self.trendingCollectionView.reloadData()
+            self.gifCollectionView.reloadData()
         }
     }
     
@@ -141,23 +141,23 @@ extension MainViewController: GiphyAPIManagerDelegate {
     }
     
     func apiSetUp() {
-        trendingAPIManager.delegate = self
-        trendingAPIManager.fetchTrending()
+        gifAPIManager.delegate = self
+        gifAPIManager.fetchTrending()
     }
     
     func searchApiSetUp(text: String) {
-        trendingAPIManager.delegate = self
-        trendingAPIManager.fetchSearch(keywords: text)
+        gifAPIManager.delegate = self
+        gifAPIManager.fetchSearch(keywords: text)
     }
 }
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.isFiltering ? self.searchData.count : trendingData.count
+        return self.isFiltering ? self.searchData.count : gifData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrendingCollectionViewCell", for: indexPath) as? TrendingCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GifCollectionViewCell", for: indexPath) as? GifCollectionViewCell else {
             return UICollectionViewCell()
         }
         
@@ -182,21 +182,21 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
             cell.bookmarkButton.customTag = searchData[indexPath.row].id
         } else {
-            url = URL(string: trendingData[indexPath.row].url)
+            url = URL(string: gifData[indexPath.row].url)
             
             cell.imageView.setImage(url: url, placeholder: placeholder)
             
-            let cellId = trendingData[indexPath.row].id
+            let cellId = gifData[indexPath.row].id
             
             if self.bookmarkedData.contains(where: { $0.id == cellId }) {
                 cell.bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-                trendingData[indexPath.row].bookmarkButtonActive = true
+                gifData[indexPath.row].bookmarkButtonActive = true
             } else {
                 cell.bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
-                trendingData[indexPath.row].bookmarkButtonActive = false
+                gifData[indexPath.row].bookmarkButtonActive = false
             }
             
-            cell.bookmarkButton.customTag = trendingData[indexPath.row].id
+            cell.bookmarkButton.customTag = gifData[indexPath.row].id
         }
         
         cell.bookmarkButton.addTarget(self, action: #selector(self.bookmarkButtonDidTapped(_ :)), for: .touchUpInside)

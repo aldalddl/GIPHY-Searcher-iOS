@@ -23,7 +23,7 @@ class BookmarkButton: UIButton {
     }
     
     @objc func clickBookmarkButton(_ sender: BookmarkButton) {
-        var buttonActive = trendingData[sender.tag].bookmarkButtonActive
+        var buttonActive = gifData[sender.tag].bookmarkButtonActive
         
         if !buttonActive {
             sender.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)

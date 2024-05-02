@@ -51,7 +51,7 @@ class BookmarkViewController: UIViewController {
         
         bookmarkCollectionView.dataSource = self
         bookmarkCollectionView.delegate = self
-        bookmarkCollectionView.register(TrendingCollectionViewCell.self, forCellWithReuseIdentifier: "BookmarkCollectionViewCell")
+        bookmarkCollectionView.register(GifCollectionViewCell.self, forCellWithReuseIdentifier: "BookmarkCollectionViewCell")
     }
     
     func layout() {
@@ -72,7 +72,7 @@ extension BookmarkViewController {
             UserDefaults.standard.set(encoded, forKey: "bookmarkedData")
         }
         
-        trendingData[sender.tag].bookmarkButtonActive = !trendingData[sender.tag].bookmarkButtonActive
+        gifData[sender.tag].bookmarkButtonActive = !gifData[sender.tag].bookmarkButtonActive
         sender.setImage(UIImage(systemName: "bookmark"), for: .normal)
         
         self.bookmarkCollectionView.reloadData()
@@ -85,7 +85,7 @@ extension BookmarkViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookmarkCollectionViewCell", for: indexPath) as? TrendingCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookmarkCollectionViewCell", for: indexPath) as? GifCollectionViewCell else {
             return UICollectionViewCell()
         }
 

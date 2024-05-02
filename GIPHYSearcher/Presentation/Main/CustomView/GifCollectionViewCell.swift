@@ -1,5 +1,5 @@
 //
-//  TrendingCollectionViewCell.swift
+//  GifCollectionViewCell.swift
 //  GIPHYSearcher
 //
 //  Created by 강민지 on 2/20/24.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import JellyGif
 
-class TrendingCollectionViewCell: UICollectionViewCell {
+class GifCollectionViewCell: UICollectionViewCell {
     let imageView = UIImageView()
     let bookmarkButton = BookmarkButton()
     

@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import JellyGif
 
 class MainViewController: UIViewController {
     var gifAPIManager = GiphyAPIManager()

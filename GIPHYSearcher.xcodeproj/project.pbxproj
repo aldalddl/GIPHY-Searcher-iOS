@@ -215,7 +215,6 @@
 				4712ECB02B8336A3009B6BE9 /* Sources */,
 				4712ECB12B8336A3009B6BE9 /* Frameworks */,
 				4712ECB22B8336A3009B6BE9 /* Resources */,
-				3A26E0FE9CA212AE1DB0FA5B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -280,23 +279,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3A26E0FE9CA212AE1DB0FA5B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GIPHYSearcher/Pods-GIPHYSearcher-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GIPHYSearcher/Pods-GIPHYSearcher-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GIPHYSearcher/Pods-GIPHYSearcher-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C618D48C2452A30C65E822C3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

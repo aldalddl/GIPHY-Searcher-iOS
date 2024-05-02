@@ -165,6 +165,7 @@
 		4712ECDA2B84C125009B6BE9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4727267E2BD7752F00B37D2E /* UIImageViewExtension.swift */,
 				4712ECED2B85227B009B6BE9 /* MainTabBarController.swift */,
 				476A85EB2B9C5A260003E6D6 /* BookmarkButton.swift */,
 			);
@@ -191,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				4712ECF22B852366009B6BE9 /* GifCollectionViewCell.swift */,
-				4727267E2BD7752F00B37D2E /* UIImageViewExtension.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";

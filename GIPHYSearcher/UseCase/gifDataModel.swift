@@ -15,4 +15,4 @@ struct gifDataModel: Codable {
     var bookmarkButtonActive: Bool
 }
 
-var trendingData = [gifDataModel]()
+var gifData = [gifDataModel]()

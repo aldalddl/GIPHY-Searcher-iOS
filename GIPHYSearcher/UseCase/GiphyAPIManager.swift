@@ -1,5 +1,5 @@
 //
-//  TrendingAPIManager.swift
+//  GiphyAPIManager.swift
 //  GIPHYSearcher
 //
 //  Created by 강민지 on 2/21/24.
@@ -7,23 +7,32 @@
 
 import Foundation
 
-protocol TrendingAPIManagerDelegate {
-    func didUpdateTrending(data: [gifDataModel])
+protocol GiphyAPIManagerDelegate {
+    func didUpdateData(data: [gifDataModel])
     func didFailWithError(error: Error)
 }
 
-struct TrendingAPIManager {
+struct GiphyAPIManager {
     let trendingURL = "https://api.giphy.com/v1/gifs/trending"
+    let searchURL = "https://api.giphy.com/v1/gifs/search"
+    
     let apiKey = Bundle.main.giphyAPIKey
-    var delegate: TrendingAPIManagerDelegate?
+    var delegate: GiphyAPIManagerDelegate?
     
     func fetchTrending() {
         let urlString = "\(trendingURL)?api_key=\(apiKey)"
         performRequest(with: urlString)
     }
     
+    func fetchSearch(keywords: String) {
+        let urlString = "\(searchURL)?api_key=\(apiKey)&q=\(keywords)"
+        print("fetchSearch: \(keywords)")
+        performRequest(with: urlString)
+    }
+    
     func performRequest(with urlString: String) {
         if let url = URL(string: urlString) {
+            print("performRequest url: \(url)")
             let session = URLSession(configuration: .default)
             
             let task = session.dataTask(with: url) { (data, response, error) in
@@ -32,10 +41,8 @@ struct TrendingAPIManager {
                     return
                 }
                 
-                if let safeData = data {
-                    if let trendingData = self.parseJSON(safeData) {
-                        self.delegate?.didUpdateTrending(data: trendingData)
-                    }
+                if let data, let parsedData = self.parseJSON(data) {
+                    self.delegate?.didUpdateData(data: parsedData)
                 }
             }
             
@@ -43,12 +50,12 @@ struct TrendingAPIManager {
         }
     }
     
-    func parseJSON(_ trendingData: Data) -> [gifDataModel]? {
+    func parseJSON(_ data: Data) -> [gifDataModel]? {
         let decoder = JSONDecoder()
         do {
-            let decodedData = try decoder.decode(Trending.self, from: trendingData)
+            let decodedData = try decoder.decode(Trending.self, from: data)
             let data = decodedData.data
-            var trendingData = [gifDataModel]()
+            var dataList = [gifDataModel]()
             
             var id = ""
             var url = ""
@@ -61,10 +68,10 @@ struct TrendingAPIManager {
                 title = decodedData.data[index].title
                 username = decodedData.data[index].username
                 
-                trendingData.append(gifDataModel(id: id, url: url, title: title, username: username, bookmarkButtonActive: false))
+                dataList.append(gifDataModel(id: id, url: url, title: title, username: username, bookmarkButtonActive: false))
             }
             
-            return trendingData
+            return dataList
         } catch {
             delegate?.didFailWithError(error: error)
             return nil

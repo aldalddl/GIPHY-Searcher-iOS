@@ -161,6 +161,8 @@ struct Looping: Codable {
 enum Rating: String, Codable {
     case g = "g"
     case pg = "pg"
+    case pg13 = "pg-13"
+    case r = "r"
 }
 
 enum TypeEnum: String, Codable {

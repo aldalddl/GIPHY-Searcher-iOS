@@ -1,3 +1,44 @@
-PODFILE CHECKSUM: 2901e7162da215b01491aea2b20e38e416d2839d
+PODS:
+  - MaterialComponents/Availability (124.2.0)
+  - MaterialComponents/BottomSheet (124.2.0):
+    - MaterialComponents/Elevation
+    - MaterialComponents/private/KeyboardWatcher
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/ShapeLibrary
+    - MaterialComponents/Shapes
+  - MaterialComponents/Elevation (124.2.0):
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/private/Application (124.2.0)
+  - MaterialComponents/private/Color (124.2.0):
+    - MaterialComponents/Availability
+  - MaterialComponents/private/KeyboardWatcher (124.2.0):
+    - MaterialComponents/private/Application
+  - MaterialComponents/private/Math (124.2.0)
+  - MaterialComponents/ShadowElevations (124.2.0)
+  - MaterialComponents/ShadowLayer (124.2.0):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/ShapeLibrary (124.2.0):
+    - MaterialComponents/private/Math
+    - MaterialComponents/Shapes
+  - MaterialComponents/Shapes (124.2.0):
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
+
+DEPENDENCIES:
+  - MaterialComponents/BottomSheet
+
+SPEC REPOS:
+  trunk:
+    - MaterialComponents
+
+SPEC CHECKSUMS:
+  MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
+
+PODFILE CHECKSUM: 40e5227a5241291876bb84864b893dcf7a2e4d66
 
 COCOAPODS: 1.12.0

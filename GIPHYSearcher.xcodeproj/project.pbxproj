@@ -30,6 +30,7 @@
 		476A85EC2B9C5A260003E6D6 /* BookmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85EB2B9C5A260003E6D6 /* BookmarkButton.swift */; };
 		476A86012BA0675E0003E6D6 /* LoadingImage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 476A86002BA0675E0003E6D6 /* LoadingImage.gif */; };
 		476A86142BA1A07E0003E6D6 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A86132BA1A07E0003E6D6 /* ImageCacheManager.swift */; };
+		479DAF082BFF26A0004DA33B /* DeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DAF072BFF26A0004DA33B /* DeveloperViewController.swift */; };
 		479DAF0A2BFF26B4004DA33B /* DeveloperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DAF092BFF26B4004DA33B /* DeveloperCell.swift */; };
 		479DAF0C2BFF26BC004DA33B /* DeveloperSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DAF0B2BFF26BC004DA33B /* DeveloperSection.swift */; };
 		47EE0C002BAAB7360019C7A3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4712ECE12B84D155009B6BE9 /* SnapKit */; };
@@ -64,6 +65,7 @@
 		476A85EB2B9C5A260003E6D6 /* BookmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkButton.swift; sourceTree = "<group>"; };
 		476A86002BA0675E0003E6D6 /* LoadingImage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = LoadingImage.gif; path = GIPHYSearcher/Resources/Assets.xcassets/LoadingImage.dataset/LoadingImage.gif; sourceTree = "<group>"; };
 		476A86132BA1A07E0003E6D6 /* ImageCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		479DAF072BFF26A0004DA33B /* DeveloperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperViewController.swift; sourceTree = "<group>"; };
 		479DAF092BFF26B4004DA33B /* DeveloperCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperCell.swift; sourceTree = "<group>"; };
 		479DAF0B2BFF26BC004DA33B /* DeveloperSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSection.swift; sourceTree = "<group>"; };
 		47EE0C022BAAB9E30019C7A3 /* APIKey.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIKey.plist; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				476A85DA2B883D660003E6D6 /* gifDataModel.swift in Sources */,
 				479DAF0C2BFF26BC004DA33B /* DeveloperSection.swift in Sources */,
 				4712ECEE2B85227B009B6BE9 /* MainTabBarController.swift in Sources */,
+				479DAF082BFF26A0004DA33B /* DeveloperViewController.swift in Sources */,
 				4712ECBC2B8336A3009B6BE9 /* MainViewController.swift in Sources */,
 				476A86142BA1A07E0003E6D6 /* ImageCacheManager.swift in Sources */,
 				4712ECB82B8336A3009B6BE9 /* AppDelegate.swift in Sources */,

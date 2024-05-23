@@ -41,6 +41,9 @@ class DeveloperViewController: UIViewController {
     func setUp() {
         self.view.backgroundColor = .background
         
+        self.titleLabel.text = Developer.name
+        self.descriptionLabel.text = Developer.description
+        
         tableView.dataSource = self
         tableView.delegate = self
     }

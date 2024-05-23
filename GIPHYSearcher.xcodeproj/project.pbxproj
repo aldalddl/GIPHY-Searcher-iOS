@@ -18,6 +18,11 @@
 		4712ECF02B852307009B6BE9 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4712ECEF2B852307009B6BE9 /* ColorExtension.swift */; };
 		4712ECF32B852366009B6BE9 /* GifCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4712ECF22B852366009B6BE9 /* GifCollectionViewCell.swift */; };
 		4727267F2BD7752F00B37D2E /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4727267E2BD7752F00B37D2E /* UIImageViewExtension.swift */; };
+		475E82612BFE42570071BF14 /* SettingDisclosureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475E82602BFE42570071BF14 /* SettingDisclosureCell.swift */; };
+		475E82652BFE42690071BF14 /* SettingInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475E82642BFE42690071BF14 /* SettingInfoCell.swift */; };
+		475E82672BFE44390071BF14 /* SettingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475E82662BFE44390071BF14 /* SettingSection.swift */; };
+		475E82732BFE5C200071BF14 /* SettingSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475E82722BFE5C200071BF14 /* SettingSectionHeaderView.swift */; };
+		475E82762BFE5C6C0071BF14 /* SettingSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475E82752BFE5C6C0071BF14 /* SettingSectionFooterView.swift */; };
 		476A85D92B883D660003E6D6 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D32B883D660003E6D6 /* Bundle.swift */; };
 		476A85DA2B883D660003E6D6 /* gifDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D42B883D660003E6D6 /* gifDataModel.swift */; };
 		476A85DB2B883D660003E6D6 /* TrendingAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D52B883D660003E6D6 /* TrendingAPIData.swift */; };
@@ -45,6 +50,11 @@
 		4712ECEF2B852307009B6BE9 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		4712ECF22B852366009B6BE9 /* GifCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifCollectionViewCell.swift; sourceTree = "<group>"; };
 		4727267E2BD7752F00B37D2E /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		475E82602BFE42570071BF14 /* SettingDisclosureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDisclosureCell.swift; sourceTree = "<group>"; };
+		475E82642BFE42690071BF14 /* SettingInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingInfoCell.swift; sourceTree = "<group>"; };
+		475E82662BFE44390071BF14 /* SettingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSection.swift; sourceTree = "<group>"; };
+		475E82722BFE5C200071BF14 /* SettingSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionHeaderView.swift; sourceTree = "<group>"; };
+		475E82752BFE5C6C0071BF14 /* SettingSectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionFooterView.swift; sourceTree = "<group>"; };
 		476A85D32B883D660003E6D6 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		476A85D42B883D660003E6D6 /* gifDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gifDataModel.swift; sourceTree = "<group>"; };
 		476A85D52B883D660003E6D6 /* TrendingAPIData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingAPIData.swift; sourceTree = "<group>"; };
@@ -183,6 +193,7 @@
 		4712ECE82B85224C009B6BE9 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				475E825F2BFE42450071BF14 /* CustomView */,
 				4712ECEB2B85226D009B6BE9 /* SettingViewController.swift */,
 			);
 			path = Setting;
@@ -194,6 +205,26 @@
 				4712ECF22B852366009B6BE9 /* GifCollectionViewCell.swift */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		475E825F2BFE42450071BF14 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				475E82772BFE61B90071BF14 /* Custom Cell */,
+				475E82662BFE44390071BF14 /* SettingSection.swift */,
+				475E82722BFE5C200071BF14 /* SettingSectionHeaderView.swift */,
+				475E82752BFE5C6C0071BF14 /* SettingSectionFooterView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		475E82772BFE61B90071BF14 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				475E82602BFE42570071BF14 /* SettingDisclosureCell.swift */,
+				475E82642BFE42690071BF14 /* SettingInfoCell.swift */,
+			);
+			path = "Custom Cell";
 			sourceTree = "<group>";
 		};
 		7E538E1A59A5A6DC04858E17 /* Frameworks */ = {
@@ -309,10 +340,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4712ECEC2B85226D009B6BE9 /* SettingViewController.swift in Sources */,
+				475E82612BFE42570071BF14 /* SettingDisclosureCell.swift in Sources */,
+				475E82652BFE42690071BF14 /* SettingInfoCell.swift in Sources */,
 				4712ECEA2B852264009B6BE9 /* BookmarkViewController.swift in Sources */,
+				475E82732BFE5C200071BF14 /* SettingSectionHeaderView.swift in Sources */,
 				476A85DB2B883D660003E6D6 /* TrendingAPIData.swift in Sources */,
 				476A85D92B883D660003E6D6 /* Bundle.swift in Sources */,
 				4712ECF32B852366009B6BE9 /* GifCollectionViewCell.swift in Sources */,
+				475E82762BFE5C6C0071BF14 /* SettingSectionFooterView.swift in Sources */,
 				4727267F2BD7752F00B37D2E /* UIImageViewExtension.swift in Sources */,
 				476A85DA2B883D660003E6D6 /* gifDataModel.swift in Sources */,
 				4712ECEE2B85227B009B6BE9 /* MainTabBarController.swift in Sources */,
@@ -320,6 +355,7 @@
 				476A86142BA1A07E0003E6D6 /* ImageCacheManager.swift in Sources */,
 				4712ECB82B8336A3009B6BE9 /* AppDelegate.swift in Sources */,
 				4712ECF02B852307009B6BE9 /* ColorExtension.swift in Sources */,
+				475E82672BFE44390071BF14 /* SettingSection.swift in Sources */,
 				476A85EC2B9C5A260003E6D6 /* BookmarkButton.swift in Sources */,
 				476A85DC2B883D660003E6D6 /* GiphyAPIManager.swift in Sources */,
 				4712ECBA2B8336A3009B6BE9 /* SceneDelegate.swift in Sources */,

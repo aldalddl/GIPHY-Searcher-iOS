@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import MaterialComponents.MaterialBottomSheet
 
 class SettingViewController: UIViewController {
     let settingTableView: UITableView = {
@@ -46,6 +47,17 @@ class SettingViewController: UIViewController {
     }
 }
 
+// MARK: Functions
+extension SettingViewController {
+    func openBottomSheet() {
+        let contentViewController = DeveloperViewController()
+        let bottomSheet = MDCBottomSheetController(contentViewController: contentViewController)
+        
+        bottomSheet.preferredContentSize = CGSize(width: self.view.frame.size.width, height: 300)
+        present(bottomSheet, animated: true, completion: nil)
+    }
+}
+
 // MARK: UITableView DataSource
 extension SettingViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -80,6 +92,17 @@ extension SettingViewController: UITableViewDataSource {
                 cell.textLabel?.text = row.desctiprion
                 cell.imageView?.image = UIImage(systemName: row.icon)
                 return cell
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let section = SettingSection(rawValue: indexPath.section) else { return }
+        
+        switch section {
+        case .information:
+            if Information(rawValue: indexPath.row) == .developer {
+                openBottomSheet()
             }
         }
     }

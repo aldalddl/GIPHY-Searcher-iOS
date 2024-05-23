@@ -83,6 +83,7 @@ extension DeveloperViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.textLabel?.text = row.title
         cell.detailTextLabel?.text = row.desctiprion
+        cell.imageView?.resizeImage(imageName: row.icon, newSize: CGSize(width: 30, height: 30))
 
         return cell
     }

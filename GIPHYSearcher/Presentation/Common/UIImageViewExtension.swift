@@ -72,4 +72,16 @@ extension UIImageView {
         self.animationRepeatCount = 0
         self.startAnimating()
     }
+    
+    func resizeImage(imageName: String, newSize: CGSize) {
+        UIGraphicsBeginImageContextWithOptions(newSize, false, UIScreen.main.scale)
+        
+        self.image = UIImage(named: imageName)
+        self.image?.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        self.image = newImage
+    }
 }

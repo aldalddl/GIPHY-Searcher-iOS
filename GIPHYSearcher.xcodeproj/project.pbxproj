@@ -60,6 +60,10 @@
 		475E826C2BFE528C0071BF14 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		475E82722BFE5C200071BF14 /* SettingSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionHeaderView.swift; sourceTree = "<group>"; };
 		475E82752BFE5C6C0071BF14 /* SettingSectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionFooterView.swift; sourceTree = "<group>"; };
+		475E82792BFF01E10071BF14 /* github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = github.png; sourceTree = "<group>"; };
+		475E827A2BFF01E10071BF14 /* github@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "github@2x.png"; sourceTree = "<group>"; };
+		475E827B2BFF01E10071BF14 /* github@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "github@3x.png"; sourceTree = "<group>"; };
+		475E827C2BFF01E10071BF14 /* Contents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		476A85D32B883D660003E6D6 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		476A85D42B883D660003E6D6 /* gifDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gifDataModel.swift; sourceTree = "<group>"; };
 		476A85D52B883D660003E6D6 /* TrendingAPIData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingAPIData.swift; sourceTree = "<group>"; };
@@ -237,6 +241,18 @@
 			path = "Custom Cell";
 			sourceTree = "<group>";
 		};
+		475E82782BFF01E10071BF14 /* github.imageset */ = {
+			isa = PBXGroup;
+			children = (
+				475E82792BFF01E10071BF14 /* github.png */,
+				475E827A2BFF01E10071BF14 /* github@2x.png */,
+				475E827B2BFF01E10071BF14 /* github@3x.png */,
+				475E827C2BFF01E10071BF14 /* Contents.json */,
+			);
+			name = github.imageset;
+			path = GIPHYSearcher/Resources/Assets.xcassets/Icon/github.imageset;
+			sourceTree = "<group>";
+		};
 		479DAF052BFF2638004DA33B /* Developer */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +274,7 @@
 		7E538E1A59A5A6DC04858E17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				475E82782BFF01E10071BF14 /* github.imageset */,
 				D8F7A1B2673660EDE6EDC4CE /* Pods_GIPHYSearcher.framework */,
 			);
 			name = Frameworks;
@@ -274,6 +291,7 @@
 				4712ECB02B8336A3009B6BE9 /* Sources */,
 				4712ECB12B8336A3009B6BE9 /* Frameworks */,
 				4712ECB22B8336A3009B6BE9 /* Resources */,
+				8BA109C111A836FB8F6E3ACA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);

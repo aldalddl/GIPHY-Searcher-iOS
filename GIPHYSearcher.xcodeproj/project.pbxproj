@@ -30,6 +30,7 @@
 		476A85EC2B9C5A260003E6D6 /* BookmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85EB2B9C5A260003E6D6 /* BookmarkButton.swift */; };
 		476A86012BA0675E0003E6D6 /* LoadingImage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 476A86002BA0675E0003E6D6 /* LoadingImage.gif */; };
 		476A86142BA1A07E0003E6D6 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A86132BA1A07E0003E6D6 /* ImageCacheManager.swift */; };
+		479DAF0A2BFF26B4004DA33B /* DeveloperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DAF092BFF26B4004DA33B /* DeveloperCell.swift */; };
 		47EE0C002BAAB7360019C7A3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4712ECE12B84D155009B6BE9 /* SnapKit */; };
 		47EE0C032BAAB9E30019C7A3 /* APIKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47EE0C022BAAB9E30019C7A3 /* APIKey.plist */; };
 		E08FA3042085B2B8C7AE0FA9 /* Pods_GIPHYSearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F7A1B2673660EDE6EDC4CE /* Pods_GIPHYSearcher.framework */; };
@@ -62,6 +63,7 @@
 		476A85EB2B9C5A260003E6D6 /* BookmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkButton.swift; sourceTree = "<group>"; };
 		476A86002BA0675E0003E6D6 /* LoadingImage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = LoadingImage.gif; path = GIPHYSearcher/Resources/Assets.xcassets/LoadingImage.dataset/LoadingImage.gif; sourceTree = "<group>"; };
 		476A86132BA1A07E0003E6D6 /* ImageCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		479DAF092BFF26B4004DA33B /* DeveloperCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperCell.swift; sourceTree = "<group>"; };
 		47EE0C022BAAB9E30019C7A3 /* APIKey.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIKey.plist; sourceTree = "<group>"; };
 		A528527BAB12FADB0DFDE62B /* Pods-GIPHYSearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GIPHYSearcher.debug.xcconfig"; path = "Target Support Files/Pods-GIPHYSearcher/Pods-GIPHYSearcher.debug.xcconfig"; sourceTree = "<group>"; };
 		D8F7A1B2673660EDE6EDC4CE /* Pods_GIPHYSearcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GIPHYSearcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +195,7 @@
 		4712ECE82B85224C009B6BE9 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				479DAF052BFF2638004DA33B /* Developer */,
 				475E825F2BFE42450071BF14 /* CustomView */,
 				4712ECEB2B85226D009B6BE9 /* SettingViewController.swift */,
 			);
@@ -225,6 +228,23 @@
 				475E82642BFE42690071BF14 /* SettingInfoCell.swift */,
 			);
 			path = "Custom Cell";
+			sourceTree = "<group>";
+		};
+		479DAF052BFF2638004DA33B /* Developer */ = {
+			isa = PBXGroup;
+			children = (
+				479DAF062BFF2644004DA33B /* CustomView */,
+				479DAF072BFF26A0004DA33B /* DeveloperViewController.swift */,
+			);
+			path = Developer;
+			sourceTree = "<group>";
+		};
+		479DAF062BFF2644004DA33B /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				479DAF092BFF26B4004DA33B /* DeveloperCell.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		7E538E1A59A5A6DC04858E17 /* Frameworks */ = {
@@ -375,6 +395,7 @@
 				475E82672BFE44390071BF14 /* SettingSection.swift in Sources */,
 				476A85EC2B9C5A260003E6D6 /* BookmarkButton.swift in Sources */,
 				476A85DC2B883D660003E6D6 /* GiphyAPIManager.swift in Sources */,
+				479DAF0A2BFF26B4004DA33B /* DeveloperCell.swift in Sources */,
 				4712ECBA2B8336A3009B6BE9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

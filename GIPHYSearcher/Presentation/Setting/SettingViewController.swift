@@ -72,6 +72,7 @@ extension SettingViewController: UITableViewDataSource {
             case .version:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingInfoCell.id, for: indexPath) as? SettingInfoCell else { return UITableViewCell() }
                 cell.textLabel?.text = row.desctiprion
+                cell.subLabel.text = App.currentVersion
                 cell.imageView?.image = UIImage(systemName: row.icon)
                 return cell
             case .developer:

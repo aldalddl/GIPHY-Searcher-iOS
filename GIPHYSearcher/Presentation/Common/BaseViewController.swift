@@ -43,7 +43,7 @@ class BaseViewController: UIViewController {
         let labelHeight = Int(label.intrinsicContentSize.height) + 10
         
         let centerX = (Int(self.view.bounds.width) - labelWidth) / 2
-        let positionY = Int(self.view.frame.size.height) - Int(offset)
+        let positionY = Int(self.view.bounds.maxY) - Int(offset)
         
         let labelSize = CGRect(x: centerX, y: positionY, width: labelWidth, height: labelHeight)
         

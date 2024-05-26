@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class BookmarkViewController: UIViewController {
+class BookmarkViewController: BaseViewController {
     var bookmarkedData = [gifDataModel]()
 
     let bookmarkCollectionView: UICollectionView = {
@@ -100,4 +100,23 @@ extension BookmarkViewController: UICollectionViewDelegate, UICollectionViewData
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? GifCollectionViewCell {
+            cell.imageView.startAnimating()
+        }
+        
+        let gifTitle = gifData[indexPath.row].title
+        let gifSearchWord = gifTitle.replacingOccurrences(of: " GIF", with: "")
+        let navigationViewController = tabBarController?.viewControllers![1] as! UINavigationController
+
+        UIPasteboard.general.string = gifSearchWord
+        guard let tapBarHeight = tabBarController?.tabBar.frame.size.height else { return }
+        showToast(message: "복사 되었습니다", offset: tapBarHeight + 45)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? GifCollectionViewCell {
+            cell.imageView.startAnimating()
+        }
+    }
 }

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class DeveloperViewController: UIViewController {
+class DeveloperViewController: BaseViewController {
     var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 35, weight: .regular)
@@ -98,6 +98,7 @@ extension DeveloperViewController: UITableViewDataSource, UITableViewDelegate {
             }
         case .email:
             UIPasteboard.general.string = row.source
+            showToast(message: "이메일 주소가 복사 되었습니다", offset: 75)
         }
     }
 }

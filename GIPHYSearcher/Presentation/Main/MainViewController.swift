@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController {
     var gifAPIManager = GiphyAPIManager()
     var bookmarkedData = [gifDataModel]()
     var searchData = [gifDataModel]()
@@ -209,6 +209,13 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if let cell = collectionView.cellForItem(at: indexPath) as? GifCollectionViewCell {
             cell.imageView.startAnimating()
         }
+        
+        let gifTitle = gifData[indexPath.row].title
+        let gifSearchWord = gifTitle.replacingOccurrences(of: " GIF", with: "")
+        
+        UIPasteboard.general.string = gifSearchWord
+        guard let tapBarHeight = tabBarController?.tabBar.frame.size.height else { return }
+        showToast(message: "복사 되었습니다", offset: tapBarHeight + 45)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

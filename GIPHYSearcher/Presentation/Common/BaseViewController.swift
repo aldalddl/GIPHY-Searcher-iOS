@@ -14,7 +14,7 @@ class BaseViewController: UIViewController {
         
         let toastLabel = UILabel(frame: labelSize)
         
-        toastLabel.backgroundColor = .white.withAlphaComponent(0.7)
+        toastLabel.backgroundColor = .white.withAlphaComponent(0.8)
         toastLabel.alpha = 1.0
         toastLabel.layer.cornerRadius = 10
         toastLabel.clipsToBounds = true

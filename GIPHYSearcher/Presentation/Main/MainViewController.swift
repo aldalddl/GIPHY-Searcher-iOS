@@ -49,6 +49,12 @@ class MainViewController: BaseViewController {
         gifCollectionView.reloadData()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        if let encoded = try? JSONEncoder().encode(self.bookmarkedData) {
+            UserDefaults.standard.set(encoded, forKey: "bookmarkedData")
+        }
+    }
+    
     // MARK: SetUp
     func setUp() {
         self.view.backgroundColor = .backgroundColor
@@ -102,21 +108,24 @@ extension MainViewController {
         
         if !buttonActive {
             sender.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            
             self.bookmarkedData.append(gifData[sender.tag])
+            
+            gifData[sender.tag].bookmarkButtonActive = true
         } else {
             sender.setImage(UIImage(systemName: "bookmark"), for: .normal)
             
             if let filteredIndex = gifData.firstIndex(where: { $0.id == sender.customTag }) {
                 self.bookmarkedData.remove(at: filteredIndex)
             }
+            
+            gifData[sender.tag].bookmarkButtonActive = false
         }
-    
+            
         if let encoded = try? JSONEncoder().encode(self.bookmarkedData) {
             UserDefaults.standard.set(encoded, forKey: "bookmarkedData")
         }
         
-        buttonActive = !buttonActive
-
         bookmarkViewController.bookmarkCollectionView.reloadData()
     }
 }

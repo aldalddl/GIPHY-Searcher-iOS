@@ -115,7 +115,7 @@ extension MainViewController {
         } else {
             sender.setImage(UIImage(systemName: "bookmark"), for: .normal)
             
-            if let filteredIndex = gifData.firstIndex(where: { $0.id == sender.customTag }) {
+            if let filteredIndex = self.bookmarkedData.firstIndex(where: { $0.id == sender.customTag }) {
                 self.bookmarkedData.remove(at: filteredIndex)
             }
             
@@ -138,8 +138,6 @@ extension MainViewController: GiphyAPIManagerDelegate {
         } else {
             gifData = data
         }
-
-        print(data)
         
         DispatchQueue.main.async {
             self.gifCollectionView.reloadData()

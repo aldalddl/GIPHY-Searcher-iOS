@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,6 +39,16 @@
 		47EE0C032BAAB9E30019C7A3 /* APIKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47EE0C022BAAB9E30019C7A3 /* APIKey.plist */; };
 		E08FA3042085B2B8C7AE0FA9 /* Pods_GIPHYSearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F7A1B2673660EDE6EDC4CE /* Pods_GIPHYSearcher.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		47AEB4342D0856DF001C458C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4712ECAC2B8336A3009B6BE9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4712ECB32B8336A3009B6BE9;
+			remoteInfo = GIPHYSearcher;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4070B8F356873457E9D66C78 /* Pods-GIPHYSearcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GIPHYSearcher.release.xcconfig"; path = "Target Support Files/Pods-GIPHYSearcher/Pods-GIPHYSearcher.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,10 +86,15 @@
 		479DAF092BFF26B4004DA33B /* DeveloperCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperCell.swift; sourceTree = "<group>"; };
 		479DAF0B2BFF26BC004DA33B /* DeveloperSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSection.swift; sourceTree = "<group>"; };
 		479DAF0D2BFF2FDF004DA33B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		47AEB4302D0856DF001C458C /* GIPHYSearcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GIPHYSearcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		47EE0C022BAAB9E30019C7A3 /* APIKey.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIKey.plist; sourceTree = "<group>"; };
 		A528527BAB12FADB0DFDE62B /* Pods-GIPHYSearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GIPHYSearcher.debug.xcconfig"; path = "Target Support Files/Pods-GIPHYSearcher/Pods-GIPHYSearcher.debug.xcconfig"; sourceTree = "<group>"; };
 		D8F7A1B2673660EDE6EDC4CE /* Pods_GIPHYSearcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GIPHYSearcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		47AEB4312D0856DF001C458C /* GIPHYSearcherTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = GIPHYSearcherTests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4712ECB12B8336A3009B6BE9 /* Frameworks */ = {
@@ -88,6 +103,13 @@
 			files = (
 				47EE0C002BAAB7360019C7A3 /* SnapKit in Frameworks */,
 				E08FA3042085B2B8C7AE0FA9 /* Pods_GIPHYSearcher.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47AEB42D2D0856DF001C458C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +130,7 @@
 			children = (
 				476A86002BA0675E0003E6D6 /* LoadingImage.gif */,
 				4712ECB62B8336A3009B6BE9 /* GIPHYSearcher */,
+				47AEB4312D0856DF001C458C /* GIPHYSearcherTests */,
 				4712ECB52B8336A3009B6BE9 /* Products */,
 				3FBECD8780E49C9E758F3C97 /* Pods */,
 				7E538E1A59A5A6DC04858E17 /* Frameworks */,
@@ -118,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				4712ECB42B8336A3009B6BE9 /* GIPHYSearcher.app */,
+				47AEB4302D0856DF001C458C /* GIPHYSearcherTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -308,6 +332,29 @@
 			productReference = 4712ECB42B8336A3009B6BE9 /* GIPHYSearcher.app */;
 			productType = "com.apple.product-type.application";
 		};
+		47AEB42F2D0856DF001C458C /* GIPHYSearcherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47AEB4382D0856DF001C458C /* Build configuration list for PBXNativeTarget "GIPHYSearcherTests" */;
+			buildPhases = (
+				47AEB42C2D0856DF001C458C /* Sources */,
+				47AEB42D2D0856DF001C458C /* Frameworks */,
+				47AEB42E2D0856DF001C458C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				47AEB4352D0856DF001C458C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				47AEB4312D0856DF001C458C /* GIPHYSearcherTests */,
+			);
+			name = GIPHYSearcherTests;
+			packageProductDependencies = (
+			);
+			productName = GIPHYSearcherTests;
+			productReference = 47AEB4302D0856DF001C458C /* GIPHYSearcherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -315,11 +362,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					4712ECB32B8336A3009B6BE9 = {
 						CreatedOnToolsVersion = 15.0.1;
+					};
+					47AEB42F2D0856DF001C458C = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 4712ECB32B8336A3009B6BE9;
 					};
 				};
 			};
@@ -340,6 +391,7 @@
 			projectRoot = "";
 			targets = (
 				4712ECB32B8336A3009B6BE9 /* GIPHYSearcher */,
+				47AEB42F2D0856DF001C458C /* GIPHYSearcherTests */,
 			);
 		};
 /* End PBXProject section */
@@ -353,6 +405,13 @@
 				47EE0C032BAAB9E30019C7A3 /* APIKey.plist in Resources */,
 				4712ECC42B8336A4009B6BE9 /* LaunchScreen.storyboard in Resources */,
 				4712ECC12B8336A4009B6BE9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47AEB42E2D0856DF001C458C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,7 +492,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		47AEB42C2D0856DF001C458C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		47AEB4352D0856DF001C458C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4712ECB32B8336A3009B6BE9 /* GIPHYSearcher */;
+			targetProxy = 47AEB4342D0856DF001C458C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4712ECC22B8336A4009B6BE9 /* LaunchScreen.storyboard */ = {
@@ -632,6 +706,44 @@
 			};
 			name = Release;
 		};
+		47AEB4362D0856DF001C458C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MA5KYZD992;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aldalddl.GIPHYSearcherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GIPHYSearcher.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GIPHYSearcher";
+			};
+			name = Debug;
+		};
+		47AEB4372D0856DF001C458C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MA5KYZD992;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aldalddl.GIPHYSearcherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GIPHYSearcher.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GIPHYSearcher";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -649,6 +761,15 @@
 			buildConfigurations = (
 				4712ECC92B8336A4009B6BE9 /* Debug */,
 				4712ECCA2B8336A4009B6BE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47AEB4382D0856DF001C458C /* Build configuration list for PBXNativeTarget "GIPHYSearcherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47AEB4362D0856DF001C458C /* Debug */,
+				47AEB4372D0856DF001C458C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -9,7 +9,14 @@ import Foundation
 
 protocol GiphyAPIManagerDelegate {
     func didUpdateData(data: [gifDataModel])
-    func didFailWithError(error: Error)
+    func didFailWithError(error: NetworkError)
+}
+
+enum NetworkError: Error {
+    case invalidURL
+    case noData
+    case parsingFailed
+    case networkError(description: String)
 }
 
 struct GiphyAPIManager {
@@ -30,22 +37,29 @@ struct GiphyAPIManager {
     }
     
     func performRequest(with urlString: String) {
-        if let url = URL(string: urlString) {
+        guard let url = URL(string: urlString) else {
+            delegate?.didFailWithError(error: .invalidURL)
+            return
+        }
             let session = URLSession(configuration: .default)
             
             let task = session.dataTask(with: url) { (data, response, error) in
-                if error != nil {
-                    self.delegate?.didFailWithError(error: error!)
+                if let error = error {
+                    self.delegate?.didFailWithError(error: .networkError(description: error.localizedDescription))
                     return
                 }
                 
-                if let data, let parsedData = self.parseJSON(data) {
-                    self.delegate?.didUpdateData(data: parsedData)
+                guard let data = data else {
+                    self.delegate?.didFailWithError(error: .noData)
+                    return
+                }
+                
+                if let parsedData = self.parseJSON(data) {
+                    self.delegate?.didFailWithError(error: .parsingFailed)
                 }
             }
             
             task.resume()
-        }
     }
     
     func parseJSON(_ data: Data) -> [gifDataModel]? {

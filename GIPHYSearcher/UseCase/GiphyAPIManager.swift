@@ -41,25 +41,41 @@ struct GiphyAPIManager {
             delegate?.didFailWithError(error: .invalidURL)
             return
         }
-            let session = URLSession(configuration: .default)
+        let session = URLSession(configuration: .default)
+        
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                self.delegate?.didFailWithError(error: .networkError(description: error.localizedDescription))
+                return
+            }
             
-            let task = session.dataTask(with: url) { (data, response, error) in
-                if let error = error {
-                    self.delegate?.didFailWithError(error: .networkError(description: error.localizedDescription))
-                    return
-                }
-                
+            guard let httpReponse = response as? HTTPURLResponse else {
+                self.delegate?.didFailWithError(error: .networkError(description: "Invalid Response"))
+                return
+            }
+            
+            switch httpReponse.statusCode {
+            case 200..<300:
                 guard let data = data else {
                     self.delegate?.didFailWithError(error: .noData)
                     return
                 }
                 
                 if let parsedData = self.parseJSON(data) {
+                    self.delegate?.didUpdateData(data: parsedData)
+                } else {
                     self.delegate?.didFailWithError(error: .parsingFailed)
                 }
+            case 400..<500:
+                self.delegate?.didFailWithError(error: .networkError(description: "Client Error: \(httpReponse.statusCode)"))
+            case 500..<600:
+                self.delegate?.didFailWithError(error: .networkError(description: "Server Error: \(httpReponse.statusCode)"))
+            default:
+                self.delegate?.didFailWithError(error: .networkError(description: "Unexpected HTTP Status Code: \(httpReponse.statusCode)"))
             }
-            
-            task.resume()
+        }
+        
+        task.resume()
     }
     
     func parseJSON(_ data: Data) -> [gifDataModel]? {

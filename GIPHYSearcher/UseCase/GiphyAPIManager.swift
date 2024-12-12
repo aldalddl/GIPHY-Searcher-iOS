@@ -17,6 +17,7 @@ enum NetworkError: Error {
     case noData
     case parsingFailed
     case networkError(description: String)
+    case decodingFailed
 }
 
 struct GiphyAPIManager {
@@ -82,26 +83,19 @@ struct GiphyAPIManager {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(Trending.self, from: data)
-            let data = decodedData.data
-            var dataList = [gifDataModel]()
             
-            var id = ""
-            var url = ""
-            var title = ""
-            var username = ""
-                        
-            for index in 0..<data.count {
-                id = decodedData.data[index].id
-                url = decodedData.data[index].images.original.url
-                title = decodedData.data[index].title
-                username = decodedData.data[index].username
-                
-                dataList.append(gifDataModel(id: id, url: url, title: title, username: username, bookmarkButtonActive: false))
+            let dataList = decodedData.data.map {
+                gifDataModel(
+                    id: $0.id,
+                    url: $0.images.original.url,
+                    title: $0.title,
+                    username: $0.username,
+                    bookmarkButtonActive: false)
             }
             
             return dataList
-        } catch {
-            delegate?.didFailWithError(error: error)
+        } catch let error {
+            delegate?.didFailWithError(error: NetworkError.decodingFailed)
             return nil
         }
     }

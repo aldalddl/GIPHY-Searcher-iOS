@@ -23,6 +23,12 @@ enum NetworkError: Error {
 struct GiphyAPIManager {
     let apiKey = Bundle.main.giphyAPIKey
     var delegate: GiphyAPIManagerDelegate?
+    let session: URLSessionProtocol
+    
+    init(delegate: GiphyAPIManagerDelegate?, session: URLSessionProtocol = URLSession.shared) {
+        self.delegate = delegate
+        self.session = session
+    }
     
     func fetchTrending() {
         let urlString = "\(API.baseURL)\(API.Endpoint.trending)?api_key=\(apiKey)"
@@ -39,7 +45,6 @@ struct GiphyAPIManager {
             delegate?.didFailWithError(error: .invalidURL)
             return
         }
-        let session = URLSession(configuration: .default)
         
         let task = session.dataTask(with: url) { (data, response, error) in
             if let error = error {

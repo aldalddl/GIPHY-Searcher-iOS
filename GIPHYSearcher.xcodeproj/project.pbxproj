@@ -35,6 +35,7 @@
 		479DAF0A2BFF26B4004DA33B /* DeveloperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DAF092BFF26B4004DA33B /* DeveloperCell.swift */; };
 		479DAF0C2BFF26BC004DA33B /* DeveloperSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DAF0B2BFF26BC004DA33B /* DeveloperSection.swift */; };
 		479DAF0E2BFF2FDF004DA33B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DAF0D2BFF2FDF004DA33B /* BaseViewController.swift */; };
+		47AEB44F2D0DCC46001C458C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AEB44E2D0DCC40001C458C /* API.swift */; };
 		47EE0C002BAAB7360019C7A3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4712ECE12B84D155009B6BE9 /* SnapKit */; };
 		47EE0C032BAAB9E30019C7A3 /* APIKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47EE0C022BAAB9E30019C7A3 /* APIKey.plist */; };
 		E08FA3042085B2B8C7AE0FA9 /* Pods_GIPHYSearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F7A1B2673660EDE6EDC4CE /* Pods_GIPHYSearcher.framework */; };
@@ -87,6 +88,7 @@
 		479DAF0B2BFF26BC004DA33B /* DeveloperSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSection.swift; sourceTree = "<group>"; };
 		479DAF0D2BFF2FDF004DA33B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		47AEB4302D0856DF001C458C /* GIPHYSearcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GIPHYSearcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		47AEB44E2D0DCC40001C458C /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		47EE0C022BAAB9E30019C7A3 /* APIKey.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIKey.plist; sourceTree = "<group>"; };
 		A528527BAB12FADB0DFDE62B /* Pods-GIPHYSearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GIPHYSearcher.debug.xcconfig"; path = "Target Support Files/Pods-GIPHYSearcher/Pods-GIPHYSearcher.debug.xcconfig"; sourceTree = "<group>"; };
 		D8F7A1B2673660EDE6EDC4CE /* Pods_GIPHYSearcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GIPHYSearcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +163,7 @@
 		4712ECD32B84C0A1009B6BE9 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				47AEB44E2D0DCC40001C458C /* API.swift */,
 				47EE0C022BAAB9E30019C7A3 /* APIKey.plist */,
 				476A86132BA1A07E0003E6D6 /* ImageCacheManager.swift */,
 				476A85D32B883D660003E6D6 /* Bundle.swift */,
@@ -472,6 +475,7 @@
 				475E82732BFE5C200071BF14 /* SettingSectionHeaderView.swift in Sources */,
 				476A85DB2B883D660003E6D6 /* TrendingAPIData.swift in Sources */,
 				476A85D92B883D660003E6D6 /* Bundle.swift in Sources */,
+				47AEB44F2D0DCC46001C458C /* API.swift in Sources */,
 				4712ECF32B852366009B6BE9 /* GifCollectionViewCell.swift in Sources */,
 				475E82762BFE5C6C0071BF14 /* SettingSectionFooterView.swift in Sources */,
 				4727267F2BD7752F00B37D2E /* UIImageViewExtension.swift in Sources */,

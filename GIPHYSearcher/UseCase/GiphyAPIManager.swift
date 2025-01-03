@@ -21,19 +21,16 @@ enum NetworkError: Error {
 }
 
 struct GiphyAPIManager {
-    let trendingURL = "https://api.giphy.com/v1/gifs/trending"
-    let searchURL = "https://api.giphy.com/v1/gifs/search"
-    
     let apiKey = Bundle.main.giphyAPIKey
     var delegate: GiphyAPIManagerDelegate?
     
     func fetchTrending() {
-        let urlString = "\(trendingURL)?api_key=\(apiKey)"
+        let urlString = "\(API.baseURL)\(API.Endpoint.trending)?api_key=\(apiKey)"
         performRequest(with: urlString)
     }
     
     func fetchSearch(keywords: String) {
-        let urlString = "\(searchURL)?api_key=\(apiKey)&q=\(keywords)"
+        let urlString = "\(API.baseURL)\(API.Endpoint.searching)?api_key=\(apiKey)&q=\(keywords)"
         performRequest(with: urlString)
     }
     

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 73;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,6 +31,7 @@
 		476A85EC2B9C5A260003E6D6 /* BookmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85EB2B9C5A260003E6D6 /* BookmarkButton.swift */; };
 		476A86012BA0675E0003E6D6 /* LoadingImage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 476A86002BA0675E0003E6D6 /* LoadingImage.gif */; };
 		476A86142BA1A07E0003E6D6 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A86132BA1A07E0003E6D6 /* ImageCacheManager.swift */; };
+		4798010D2D27EF3500026A7F /* GiphyAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D62B883D660003E6D6 /* GiphyAPIManager.swift */; };
 		479DAF082BFF26A0004DA33B /* DeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DAF072BFF26A0004DA33B /* DeveloperViewController.swift */; };
 		479DAF0A2BFF26B4004DA33B /* DeveloperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DAF092BFF26B4004DA33B /* DeveloperCell.swift */; };
 		479DAF0C2BFF26BC004DA33B /* DeveloperSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DAF0B2BFF26BC004DA33B /* DeveloperSection.swift */; };
@@ -94,8 +95,36 @@
 		D8F7A1B2673660EDE6EDC4CE /* Pods_GIPHYSearcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GIPHYSearcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4798010B2D269A6D00026A7F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MockURLSession.swift,
+				MockURLSessionDataTask.swift,
+			);
+			target = 4712ECB32B8336A3009B6BE9 /* GIPHYSearcher */;
+		};
+		47AEB4482D0C403A001C458C /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MockTrending.json,
+			);
+			target = 47AEB42F2D0856DF001C458C /* GIPHYSearcherTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		47AEB4492D0C403A001C458C /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 47AEB42C2D0856DF001C458C /* Sources */;
+			membershipExceptions = (
+				MockTrending.json,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		47AEB4312D0856DF001C458C /* GIPHYSearcherTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = GIPHYSearcherTests; sourceTree = "<group>"; };
+		47AEB4312D0856DF001C458C /* GIPHYSearcherTests */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (4798010B2D269A6D00026A7F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 47AEB4482D0C403A001C458C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 47AEB4492D0C403A001C458C /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = GIPHYSearcherTests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,7 +407,6 @@
 				};
 			};
 			buildConfigurationList = 4712ECAF2B8336A3009B6BE9 /* Build configuration list for PBXProject "GIPHYSearcher" */;
-			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -389,6 +417,7 @@
 			packageReferences = (
 				4712ECE02B84D155009B6BE9 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
+			preferredProjectObjectVersion = 56;
 			productRefGroup = 4712ECB52B8336A3009B6BE9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -500,6 +529,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4798010D2D27EF3500026A7F /* GiphyAPIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

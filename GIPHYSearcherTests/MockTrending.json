@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "id": "123",
+      "title": "Test GIF",
+      "username": "tester",
+      "images": {
+        "original": {
+          "url": "https://example.com/gif1"
+        }
+      }
+    }
+  ]
+}

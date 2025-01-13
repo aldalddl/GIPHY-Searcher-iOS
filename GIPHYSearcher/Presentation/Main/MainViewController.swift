@@ -144,7 +144,7 @@ extension MainViewController: GiphyAPIManagerDelegate {
         }
     }
     
-    func didFailWithError(error: Error) {
+    func didFailWithError(error: NetworkError) {
         print(error)
     }
     

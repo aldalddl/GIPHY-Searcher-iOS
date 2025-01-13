@@ -37,6 +37,10 @@
 		479DAF0C2BFF26BC004DA33B /* DeveloperSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DAF0B2BFF26BC004DA33B /* DeveloperSection.swift */; };
 		479DAF0E2BFF2FDF004DA33B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DAF0D2BFF2FDF004DA33B /* BaseViewController.swift */; };
 		47AEB44F2D0DCC46001C458C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AEB44E2D0DCC40001C458C /* API.swift */; };
+		47BC2AF52D34EFDD003BA8EA /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BC2AF42D34EFDD003BA8EA /* URLSessionProtocol.swift */; };
+		47BC2AF72D34F050003BA8EA /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BC2AF62D34F050003BA8EA /* URLSessionDataTaskProtocol.swift */; };
+		47BC2AF82D34F10D003BA8EA /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BC2AF42D34EFDD003BA8EA /* URLSessionProtocol.swift */; };
+		47BC2AF92D34F111003BA8EA /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BC2AF62D34F050003BA8EA /* URLSessionDataTaskProtocol.swift */; };
 		47EE0C002BAAB7360019C7A3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4712ECE12B84D155009B6BE9 /* SnapKit */; };
 		47EE0C032BAAB9E30019C7A3 /* APIKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47EE0C022BAAB9E30019C7A3 /* APIKey.plist */; };
 		E08FA3042085B2B8C7AE0FA9 /* Pods_GIPHYSearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F7A1B2673660EDE6EDC4CE /* Pods_GIPHYSearcher.framework */; };
@@ -90,6 +94,8 @@
 		479DAF0D2BFF2FDF004DA33B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		47AEB4302D0856DF001C458C /* GIPHYSearcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GIPHYSearcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		47AEB44E2D0DCC40001C458C /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		47BC2AF42D34EFDD003BA8EA /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		47BC2AF62D34F050003BA8EA /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
 		47EE0C022BAAB9E30019C7A3 /* APIKey.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIKey.plist; sourceTree = "<group>"; };
 		A528527BAB12FADB0DFDE62B /* Pods-GIPHYSearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GIPHYSearcher.debug.xcconfig"; path = "Target Support Files/Pods-GIPHYSearcher/Pods-GIPHYSearcher.debug.xcconfig"; sourceTree = "<group>"; };
 		D8F7A1B2673660EDE6EDC4CE /* Pods_GIPHYSearcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GIPHYSearcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +198,8 @@
 		4712ECD32B84C0A1009B6BE9 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				47BC2AF62D34F050003BA8EA /* URLSessionDataTaskProtocol.swift */,
+				47BC2AF42D34EFDD003BA8EA /* URLSessionProtocol.swift */,
 				47AEB44E2D0DCC40001C458C /* API.swift */,
 				47EE0C022BAAB9E30019C7A3 /* APIKey.plist */,
 				476A86132BA1A07E0003E6D6 /* ImageCacheManager.swift */,
@@ -496,6 +504,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47BC2AF52D34EFDD003BA8EA /* URLSessionProtocol.swift in Sources */,
 				4712ECEC2B85226D009B6BE9 /* SettingViewController.swift in Sources */,
 				475E826D2BFE528C0071BF14 /* Constants.swift in Sources */,
 				475E82612BFE42570071BF14 /* SettingDisclosureCell.swift in Sources */,
@@ -513,6 +522,7 @@
 				4712ECEE2B85227B009B6BE9 /* MainTabBarController.swift in Sources */,
 				479DAF082BFF26A0004DA33B /* DeveloperViewController.swift in Sources */,
 				4712ECBC2B8336A3009B6BE9 /* MainViewController.swift in Sources */,
+				47BC2AF72D34F050003BA8EA /* URLSessionDataTaskProtocol.swift in Sources */,
 				476A86142BA1A07E0003E6D6 /* ImageCacheManager.swift in Sources */,
 				4712ECB82B8336A3009B6BE9 /* AppDelegate.swift in Sources */,
 				4712ECF02B852307009B6BE9 /* ColorExtension.swift in Sources */,
@@ -530,6 +540,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4798010D2D27EF3500026A7F /* GiphyAPIManager.swift in Sources */,
+				47BC2AF82D34F10D003BA8EA /* URLSessionProtocol.swift in Sources */,
+				47BC2AF92D34F111003BA8EA /* URLSessionDataTaskProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,12 +7,6 @@
 
 import Foundation
 
-protocol URLSessionDataTaskProtocol {
-    func resume()
-}
-
-extension URLSessionDataTask: URLSessionDataTaskProtocol { }
-
 class MockURLSessionDataTask: URLSessionDataTask {
     private let resumeHandler: () -> Void
     

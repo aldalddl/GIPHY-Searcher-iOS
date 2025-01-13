@@ -6,13 +6,6 @@
 //
 
 import Foundation
-import GIPHYSearcher
-
-protocol URLSessionProtocol {
-    func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
-}
-
-extension URLSession: URLSessionProtocol { }
 
 class MockURLSession: URLSessionProtocol {
     typealias Response = (data: Data?, reponse: URLResponse?, error: Error?)

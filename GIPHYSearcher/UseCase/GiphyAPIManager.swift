@@ -25,7 +25,7 @@ struct GiphyAPIManager {
     var delegate: GiphyAPIManagerDelegate?
     let session: URLSessionProtocol
     
-    init(delegate: GiphyAPIManagerDelegate?, session: URLSessionProtocol = URLSession.shared) {
+    init(delegate: GiphyAPIManagerDelegate? = nil, session: URLSessionProtocol = URLSession.shared) {
         self.delegate = delegate
         self.session = session
     }

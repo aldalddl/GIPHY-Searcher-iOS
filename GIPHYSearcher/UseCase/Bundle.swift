@@ -8,7 +8,7 @@
 import Foundation
 
 extension Bundle {
-    var giphyAPIKey: String {
+    public var giphyAPIKey: String {
         guard let filePath = self.path(forResource: "APIKey", ofType: "plist") else { return "" }
         
         guard let resource = NSDictionary(contentsOfFile: filePath) else { return "" }

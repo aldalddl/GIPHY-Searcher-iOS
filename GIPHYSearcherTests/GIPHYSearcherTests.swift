@@ -31,7 +31,7 @@ final class GIPHYSearcherTests: XCTestCase {
         sut.fetchTrending()
         
         XCTAssertEqual(mockDelegate.receivedData?.count, 1, "데이터 개수가 일치하지 않음")
-        XCTAssertEqual(mockDelegate.receivedData?.first?.title, "TestGIF",  "GIF 이름이 예상과 다름")
+        XCTAssertEqual(mockDelegate.receivedData?.first?.title, "Test GIF",  "GIF 이름이 예상과 다름")
         XCTAssertEqual(mockDelegate.receivedData?.first?.url, "https://example.com/gif1")
         XCTAssertNil(mockDelegate.receivedError)
     }

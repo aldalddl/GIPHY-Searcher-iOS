@@ -47,7 +47,10 @@
 		47BC2AF82D34F10D003BA8EA /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BC2AF42D34EFDD003BA8EA /* URLSessionProtocol.swift */; };
 		47BC2AF92D34F111003BA8EA /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BC2AF62D34F050003BA8EA /* URLSessionDataTaskProtocol.swift */; };
 		47BC2AFA2D34F4D2003BA8EA /* GiphyAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D62B883D660003E6D6 /* GiphyAPIManager.swift */; };
+		47BC2AFB2D3526BB003BA8EA /* gifDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D42B883D660003E6D6 /* gifDataModel.swift */; };
 		47BC2AFD2D353BA5003BA8EA /* TestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BC2AFC2D353BA5003BA8EA /* TestAPI.swift */; };
+		47BC2AFE2D353F6D003BA8EA /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AEB44E2D0DCC40001C458C /* API.swift */; };
+		47BC2AFF2D354427003BA8EA /* TrendingAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D52B883D660003E6D6 /* TrendingAPIData.swift */; };
 		47EE0C002BAAB7360019C7A3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4712ECE12B84D155009B6BE9 /* SnapKit */; };
 		47EE0C032BAAB9E30019C7A3 /* APIKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47EE0C022BAAB9E30019C7A3 /* APIKey.plist */; };
 		E08FA3042085B2B8C7AE0FA9 /* Pods_GIPHYSearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F7A1B2673660EDE6EDC4CE /* Pods_GIPHYSearcher.framework */; };
@@ -581,12 +584,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				47BC2AF82D34F10D003BA8EA /* URLSessionProtocol.swift in Sources */,
+				47BC2AFF2D354427003BA8EA /* TrendingAPIData.swift in Sources */,
 				473798282D2EB1C4008D2263 /* MockURLSession.swift in Sources */,
 				47BC2AF92D34F111003BA8EA /* URLSessionDataTaskProtocol.swift in Sources */,
 				47BC2AFD2D353BA5003BA8EA /* TestAPI.swift in Sources */,
+				47BC2AFE2D353F6D003BA8EA /* API.swift in Sources */,
 				473798292D2EB1C4008D2263 /* GIPHYSearcherTests.swift in Sources */,
 				4737982A2D2EB1C4008D2263 /* JsonLoader.swift in Sources */,
 				4737982B2D2EB1C4008D2263 /* MockURLSessionDataTask.swift in Sources */,
+				47BC2AFB2D3526BB003BA8EA /* gifDataModel.swift in Sources */,
 				47BC2AFA2D34F4D2003BA8EA /* GiphyAPIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -35,6 +35,26 @@ final class GIPHYSearcherTests: XCTestCase {
         XCTAssertEqual(mockDelegate.receivedData?.first?.url, "https://example.com/gif1")
         XCTAssertNil(mockDelegate.receivedError)
     }
+    
+    func testFetchTrendingWithEmptyData() {
+        let mockResponse: MockURLSession.Response = {
+            let emptyData = "{\"data\": []}".data(using: .utf8)!
+            let successResponse = HTTPURLResponse(url: URL(string: "https://example.com")!,
+                                                  statusCode: 200,
+                                                  httpVersion: nil,
+                                                  headerFields: nil)
+            return (data: emptyData, reponse: successResponse, error: nil)
+        }()
+        
+        let mockURLSession = MockURLSession(response: mockResponse)
+        let mockDelegate = MockDelegate()
+        let sut = GiphyAPIManager(apiKey: TestAPI.apiKey, delegate: mockDelegate, session: mockURLSession)
+        
+        sut.fetchTrending()
+        
+        XCTAssertEqual(mockDelegate.receivedData?.count, 0, "빈 데이터가 반환되지 않았음")
+        XCTAssertNil(mockDelegate.receivedError, "오류가 발생하지 않아야 함")
+    }
 }
 
 final class MockDelegate: GiphyAPIManagerDelegate {

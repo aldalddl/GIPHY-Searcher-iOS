@@ -28,17 +28,31 @@ PODS:
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
     - MaterialComponents/ShadowLayer
+  - RxCocoa (6.8.0):
+    - RxRelay (= 6.8.0)
+    - RxSwift (= 6.8.0)
+  - RxRelay (6.8.0):
+    - RxSwift (= 6.8.0)
+  - RxSwift (6.8.0)
 
 DEPENDENCIES:
   - MaterialComponents/BottomSheet
+  - RxCocoa
+  - RxSwift
 
 SPEC REPOS:
   trunk:
     - MaterialComponents
+    - RxCocoa
+    - RxRelay
+    - RxSwift
 
 SPEC CHECKSUMS:
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
+  RxCocoa: 2d33c1e1e5d66492052ad46b11024ae287572880
+  RxRelay: 335c78b926a2aea8d863a6d25f1ed3b5ad8e8705
+  RxSwift: 4e28be97cbcfeee614af26d83415febbf2bf6f45
 
-PODFILE CHECKSUM: 40e5227a5241291876bb84864b893dcf7a2e4d66
+PODFILE CHECKSUM: 77722329ce3474f31030f78773d23a878710ecb0
 
-COCOAPODS: 1.12.0
+COCOAPODS: 1.15.2

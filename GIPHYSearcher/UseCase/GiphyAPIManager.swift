@@ -84,6 +84,11 @@ struct GiphyAPIManager {
     
     func parseJSON(_ data: Data) -> [gifDataModel]? {
         let decoder = JSONDecoder()
+        
+        if let jsonString = String(data: data, encoding: .utf8) {
+            print("받은 JSON 데이터:\n\(jsonString)")
+        }
+        
         do {
             let decodedData = try decoder.decode(Trending.self, from: data)
             
@@ -99,6 +104,7 @@ struct GiphyAPIManager {
             return dataList
         } catch let error {
             delegate?.didFailWithError(error: NetworkError.decodingFailed)
+            print("디코딩 실패: \(error.localizedDescription)")
             return nil
         }
     }

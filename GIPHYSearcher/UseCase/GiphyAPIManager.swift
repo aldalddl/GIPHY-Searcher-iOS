@@ -21,11 +21,12 @@ enum NetworkError: Error {
 }
 
 struct GiphyAPIManager {
-    let apiKey = Bundle.main.giphyAPIKey
+    let apiKey: String
     var delegate: GiphyAPIManagerDelegate?
     let session: URLSessionProtocol
     
-    init(delegate: GiphyAPIManagerDelegate? = nil, session: URLSessionProtocol = URLSession.shared) {
+    init(apiKey: String = Bundle.main.giphyAPIKey, delegate: GiphyAPIManagerDelegate? = nil, session: URLSessionProtocol = URLSession.shared) {
+        self.apiKey = apiKey
         self.delegate = delegate
         self.session = session
     }

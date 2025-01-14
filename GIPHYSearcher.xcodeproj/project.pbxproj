@@ -47,6 +47,7 @@
 		47BC2AF82D34F10D003BA8EA /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BC2AF42D34EFDD003BA8EA /* URLSessionProtocol.swift */; };
 		47BC2AF92D34F111003BA8EA /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BC2AF62D34F050003BA8EA /* URLSessionDataTaskProtocol.swift */; };
 		47BC2AFA2D34F4D2003BA8EA /* GiphyAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476A85D62B883D660003E6D6 /* GiphyAPIManager.swift */; };
+		47BC2AFD2D353BA5003BA8EA /* TestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BC2AFC2D353BA5003BA8EA /* TestAPI.swift */; };
 		47EE0C002BAAB7360019C7A3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4712ECE12B84D155009B6BE9 /* SnapKit */; };
 		47EE0C032BAAB9E30019C7A3 /* APIKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47EE0C022BAAB9E30019C7A3 /* APIKey.plist */; };
 		E08FA3042085B2B8C7AE0FA9 /* Pods_GIPHYSearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F7A1B2673660EDE6EDC4CE /* Pods_GIPHYSearcher.framework */; };
@@ -112,6 +113,7 @@
 		47AEB44E2D0DCC40001C458C /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		47BC2AF42D34EFDD003BA8EA /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		47BC2AF62D34F050003BA8EA /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
+		47BC2AFC2D353BA5003BA8EA /* TestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAPI.swift; sourceTree = "<group>"; };
 		47EE0C022BAAB9E30019C7A3 /* APIKey.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIKey.plist; sourceTree = "<group>"; };
 		6DF3989B05D7A65E77982D42 /* Pods-GIPHYSearcherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GIPHYSearcherTests.release.xcconfig"; path = "Target Support Files/Pods-GIPHYSearcherTests/Pods-GIPHYSearcherTests.release.xcconfig"; sourceTree = "<group>"; };
 		A528527BAB12FADB0DFDE62B /* Pods-GIPHYSearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GIPHYSearcher.debug.xcconfig"; path = "Target Support Files/Pods-GIPHYSearcher/Pods-GIPHYSearcher.debug.xcconfig"; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 		47AEB4312D0856DF001C458C /* GIPHYSearcherTests */ = {
 			isa = PBXGroup;
 			children = (
+				47BC2AFC2D353BA5003BA8EA /* TestAPI.swift */,
 				4737981D2D2EB1C4008D2263 /* GIPHYSearcherTests.swift */,
 				4737981E2D2EB1C4008D2263 /* JsonLoader.swift */,
 				4737981F2D2EB1C4008D2263 /* MockTrending.json */,
@@ -580,6 +583,7 @@
 				47BC2AF82D34F10D003BA8EA /* URLSessionProtocol.swift in Sources */,
 				473798282D2EB1C4008D2263 /* MockURLSession.swift in Sources */,
 				47BC2AF92D34F111003BA8EA /* URLSessionDataTaskProtocol.swift in Sources */,
+				47BC2AFD2D353BA5003BA8EA /* TestAPI.swift in Sources */,
 				473798292D2EB1C4008D2263 /* GIPHYSearcherTests.swift in Sources */,
 				4737982A2D2EB1C4008D2263 /* JsonLoader.swift in Sources */,
 				4737982B2D2EB1C4008D2263 /* MockURLSessionDataTask.swift in Sources */,

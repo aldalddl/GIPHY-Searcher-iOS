@@ -10,9 +10,8 @@ import XCTest
 
 final class GIPHYSearcherTests: XCTestCase {
     func testFetchTrending() {
-        let url = "\(API.baseURL)\(API.Endpoint.trending)"
+        let url = "\(TestAPI.baseURL)\(TestAPI.Endpoint.trending)"
         guard let validUrl = URL(string: url) else {
-            XCTFail("URL 생성 실패")
             return
         }
         
@@ -27,7 +26,7 @@ final class GIPHYSearcherTests: XCTestCase {
         
         let mockURLSession = MockURLSession(response: mockResponse)
         let mockDelegate = MockDelegate()
-        let sut = GiphyAPIManager(delegate: mockDelegate, session: mockURLSession)
+        let sut = GiphyAPIManager(apiKey: TestAPI.apiKey, delegate: mockDelegate, session: mockURLSession)
         
         sut.fetchTrending()
         

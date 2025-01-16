@@ -29,6 +29,16 @@ class MainViewController: BaseViewController {
         return collectionView
     }()
     
+    private let emptyStateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "No data availble"
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        label.textColor = .gray
+        label.isHidden = true
+        return label
+    }()
+    
     var isFiltering = false
         
     override func viewDidLoad() {
@@ -82,9 +92,15 @@ class MainViewController: BaseViewController {
     // MARK: Layout
     func layout() {
         self.view.addSubview(gifCollectionView)
+        self.view.addSubview(emptyStateLabel)
         
         gifCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(20)
+        }
+        
+        emptyStateLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(20)
         }
     }
 }
@@ -128,6 +144,11 @@ extension MainViewController {
         
         bookmarkViewController.bookmarkCollectionView.reloadData()
     }
+    
+    func updateEmptyState(isEmpty: Bool) {
+        emptyStateLabel.isHidden = !isEmpty
+        gifCollectionView.isHidden = isEmpty
+    }
 }
 
 // MARK: API Response
@@ -140,7 +161,12 @@ extension MainViewController: GiphyAPIManagerDelegate {
         }
         
         DispatchQueue.main.async {
-            self.gifCollectionView.reloadData()
+            if data.isEmpty {
+                self.updateEmptyState(isEmpty: true)
+            } else {
+                self.updateEmptyState(isEmpty: false)
+                self.gifCollectionView.reloadData()
+            }
         }
     }
     

@@ -29,7 +29,7 @@ class MainViewController: BaseViewController {
         return collectionView
     }()
     
-    private let emptyStateLabel: UILabel = {
+    let emptyStateLabel: UILabel = {
         let label = UILabel()
         label.text = "No data availble"
         label.textAlignment = .center

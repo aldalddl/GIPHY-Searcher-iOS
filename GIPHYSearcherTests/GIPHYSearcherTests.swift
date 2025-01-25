@@ -55,6 +55,18 @@ final class GIPHYSearcherTests: XCTestCase {
         XCTAssertEqual(mockDelegate.receivedData?.count, 0, "빈 데이터가 반환되지 않았음")
         XCTAssertNil(mockDelegate.receivedError, "오류가 발생하지 않아야 함")
     }
+    
+    func testUpdateUIWithEmptyData() {
+        let viewController = MainViewController()
+        viewController.loadViewIfNeeded()
+        
+        gifData = []
+        
+        viewController.updateEmptyState(isEmpty: true)
+        
+        XCTAssertFalse(viewController.emptyStateLabel.isHidden)
+        XCTAssertTrue(viewController.gifCollectionView.isHidden)
+    }
 }
 
 final class MockDelegate: GiphyAPIManagerDelegate {

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+@testable import GIPHYSearcher
 
 class MockURLSession: URLSessionProtocol {
     typealias Response = (data: Data?, reponse: URLResponse?, error: Error?)

@@ -36,6 +36,27 @@ final class GIPHYSearcherTests: XCTestCase {
         XCTAssertNil(mockDelegate.receivedError)
     }
     
+    func testFetchTrendingWithNetworkError() {
+        let mockResponse: MockURLSession.Response = {
+            let error = NSError(domain: "", code: -1009, userInfo: nil)
+            return (data: nil, reponse: nil, error: error)
+        }()
+        
+        let mockURLSession = MockURLSession(response: mockResponse)
+        let mockDelegate   = MockDelegate()
+        let sut = GiphyAPIManager(apiKey: TestAPI.apiKey, delegate: mockDelegate, session: mockURLSession)
+        
+        sut.fetchTrending()
+        
+        XCTAssertNil(mockDelegate.receivedData)
+        XCTAssertNotNil(mockDelegate.receivedError)
+        if case .networkError = mockDelegate.receivedError {
+            XCTAssertTrue(true)
+        } else {
+            XCTFail("예상한 networkError가 발생하지 않았음")
+        }
+    }
+    
     func testFetchTrendingWithEmptyData() {
         let mockResponse: MockURLSession.Response = {
             let emptyData = "{\"data\": []}".data(using: .utf8)!

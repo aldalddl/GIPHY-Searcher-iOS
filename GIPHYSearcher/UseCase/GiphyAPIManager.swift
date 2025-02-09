@@ -12,7 +12,7 @@ protocol GiphyAPIManagerDelegate {
     func didFailWithError(error: NetworkError)
 }
 
-enum NetworkError: Error {
+enum NetworkError: Error, Equatable {
     case invalidURL
     case noData
     case parsingFailed

@@ -3,7 +3,27 @@
     {
       "id": "123",
       "title": "Test GIF",
-      "username": "tester",
+      "username": "tester0",
+      "images": {
+        "original": {
+          "url": "https://example.com/gif1"
+        }
+      }
+    },
+    {
+      "id": "456",
+      "title": "Test funny GIF",
+      "username": "tester1",
+      "images": {
+        "original": {
+          "url": "https://example.com/gif1"
+        }
+      }
+    },
+    {
+      "id": "789",
+      "title": "funny GIF",
+      "username": "tester2",
       "images": {
         "original": {
           "url": "https://example.com/gif1"
@@ -12,3 +32,4 @@
     }
   ]
 }
+

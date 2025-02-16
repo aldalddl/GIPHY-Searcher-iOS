@@ -30,7 +30,7 @@ final class GIPHYSearcherTests: XCTestCase {
         
         sut.fetchTrending()
         
-        XCTAssertEqual(mockDelegate.receivedData?.count, 1, "데이터 개수가 일치하지 않음")
+        XCTAssertEqual(mockDelegate.receivedData?.count, 3, "데이터 개수가 일치하지 않음")
         XCTAssertEqual(mockDelegate.receivedData?.first?.title, "Test GIF",  "GIF 이름이 예상과 다름")
         XCTAssertEqual(mockDelegate.receivedData?.first?.url, "https://example.com/gif1")
         XCTAssertNil(mockDelegate.receivedError)
@@ -75,6 +75,25 @@ final class GIPHYSearcherTests: XCTestCase {
         
         XCTAssertEqual(mockDelegate.receivedData?.count, 0, "빈 데이터가 반환되지 않았음")
         XCTAssertNil(mockDelegate.receivedError, "오류가 발생하지 않아야 함")
+    }
+    
+    func testFetchSearch() {
+        let mockResponse: MockURLSession.Response = {
+            let data = JsonLoader.data(fileName: "MockTrending")
+            let successResponse = HTTPURLResponse(url: URL(string: "https://example.com")!,
+                                                  statusCode: 200,
+                                                  httpVersion: nil,
+                                                  headerFields: nil)
+            return (data: data, reponse: successResponse, error: nil)
+        }()
+        
+        let mockURLSession = MockURLSession(responseForURL: ["\(API.baseURL)\(API.Endpoint.searching)?api_key=\(TestAPI.apiKey)&q=funny": mockResponse])
+        let mockDelegate = MockDelegate()
+        let sut = GiphyAPIManager(apiKey: TestAPI.apiKey, delegate: mockDelegate, session: mockURLSession)
+        
+        sut.fetchSearch(keywords: "funny")
+        
+        XCTAssertEqual(mockDelegate.receivedData?.count, 2, "검색 결과 개수가 다름")
     }
     
     func testUpdateUIWithEmptyData() {

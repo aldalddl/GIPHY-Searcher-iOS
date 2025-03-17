@@ -9,69 +9,102 @@ import Foundation
 
 protocol GiphyAPIManagerDelegate {
     func didUpdateData(data: [gifDataModel])
-    func didFailWithError(error: Error)
+    func didFailWithError(error: NetworkError)
+}
+
+enum NetworkError: Error, Equatable {
+    case invalidURL
+    case noData
+    case parsingFailed
+    case networkError(description: String)
+    case decodingFailed
 }
 
 struct GiphyAPIManager {
-    let trendingURL = "https://api.giphy.com/v1/gifs/trending"
-    let searchURL = "https://api.giphy.com/v1/gifs/search"
-    
-    let apiKey = Bundle.main.giphyAPIKey
+    let apiKey: String
     var delegate: GiphyAPIManagerDelegate?
+    let session: URLSessionProtocol
+    
+    init(apiKey: String = Bundle.main.giphyAPIKey, delegate: GiphyAPIManagerDelegate? = nil, session: URLSessionProtocol = URLSession.shared) {
+        self.apiKey = apiKey
+        self.delegate = delegate
+        self.session = session
+    }
     
     func fetchTrending() {
-        let urlString = "\(trendingURL)?api_key=\(apiKey)"
+        let urlString = "\(API.baseURL)\(API.Endpoint.trending)?api_key=\(apiKey)"
         performRequest(with: urlString)
     }
     
     func fetchSearch(keywords: String) {
-        let urlString = "\(searchURL)?api_key=\(apiKey)&q=\(keywords)"
+        let urlString = "\(API.baseURL)\(API.Endpoint.searching)?api_key=\(apiKey)&q=\(keywords)"
         performRequest(with: urlString)
     }
     
     func performRequest(with urlString: String) {
-        if let url = URL(string: urlString) {
-            let session = URLSession(configuration: .default)
+        guard let url = URL(string: urlString) else {
+            delegate?.didFailWithError(error: .invalidURL)
+            return
+        }
+        
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                self.delegate?.didFailWithError(error: .networkError(description: error.localizedDescription))
+                return
+            }
             
-            let task = session.dataTask(with: url) { (data, response, error) in
-                if error != nil {
-                    self.delegate?.didFailWithError(error: error!)
+            guard let httpReponse = response as? HTTPURLResponse else {
+                self.delegate?.didFailWithError(error: .networkError(description: "Invalid Response"))
+                return
+            }
+            
+            switch httpReponse.statusCode {
+            case 200..<300:
+                guard let data = data else {
+                    self.delegate?.didFailWithError(error: .noData)
                     return
                 }
                 
-                if let data, let parsedData = self.parseJSON(data) {
+                if let parsedData = self.parseJSON(data) {
                     self.delegate?.didUpdateData(data: parsedData)
+                } else {
+                    self.delegate?.didFailWithError(error: .parsingFailed)
                 }
+            case 400..<500:
+                self.delegate?.didFailWithError(error: .networkError(description: "Client Error: \(httpReponse.statusCode)"))
+            case 500..<600:
+                self.delegate?.didFailWithError(error: .networkError(description: "Server Error: \(httpReponse.statusCode)"))
+            default:
+                self.delegate?.didFailWithError(error: .networkError(description: "Unexpected HTTP Status Code: \(httpReponse.statusCode)"))
             }
-            
-            task.resume()
         }
+        
+        task.resume()
     }
     
     func parseJSON(_ data: Data) -> [gifDataModel]? {
         let decoder = JSONDecoder()
+        
+        if let jsonString = String(data: data, encoding: .utf8) {
+            print("받은 JSON 데이터:\n\(jsonString)")
+        }
+        
         do {
             let decodedData = try decoder.decode(Trending.self, from: data)
-            let data = decodedData.data
-            var dataList = [gifDataModel]()
             
-            var id = ""
-            var url = ""
-            var title = ""
-            var username = ""
-                        
-            for index in 0..<data.count {
-                id = decodedData.data[index].id
-                url = decodedData.data[index].images.original.url
-                title = decodedData.data[index].title
-                username = decodedData.data[index].username
-                
-                dataList.append(gifDataModel(id: id, url: url, title: title, username: username, bookmarkButtonActive: false))
+            let dataList = decodedData.data.map {
+                gifDataModel(
+                    id: $0.id,
+                    url: $0.images.original.url,
+                    title: $0.title,
+                    username: $0.username,
+                    bookmarkButtonActive: false)
             }
             
             return dataList
-        } catch {
-            delegate?.didFailWithError(error: error)
+        } catch let error {
+            delegate?.didFailWithError(error: NetworkError.decodingFailed)
+            print("디코딩 실패: \(error.localizedDescription)")
             return nil
         }
     }

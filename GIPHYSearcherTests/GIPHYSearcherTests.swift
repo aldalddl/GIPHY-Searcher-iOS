@@ -107,6 +107,27 @@ final class GIPHYSearcherTests: XCTestCase {
         XCTAssertFalse(viewController.emptyStateLabel.isHidden)
         XCTAssertTrue(viewController.gifCollectionView.isHidden)
     }
+    
+    func testFetchTrendingWithDecodingError() {
+        let invalidJSONData = "Invalid JSON".data(using: .utf8)!
+        let mockResponse: MockURLSession.Response = {
+            let successResponse = HTTPURLResponse(url: URL(string: "https://example.com")!,
+                                                  statusCode: 200,
+                                                  httpVersion: nil,
+                                                  headerFields: nil)
+            return (data: invalidJSONData, reponse: successResponse, error: nil)
+        }()
+        
+        let mockURLSession = MockURLSession(response: mockResponse)
+        let mockDelegate = MockDelegate()
+        let sut = GiphyAPIManager(apiKey: TestAPI.apiKey, delegate: mockDelegate, session: mockURLSession)
+        
+        sut.fetchTrending()
+        
+        XCTAssertNil(mockDelegate.receivedData)
+        XCTAssertNotNil(mockDelegate.receivedError)
+        XCTAssertEqual(mockDelegate.receivedError, .decodingFailed)
+    }
 }
 
 final class MockDelegate: GiphyAPIManagerDelegate {
